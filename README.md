@@ -1,4 +1,4 @@
-# Trabalho_Prog
+# Trabalho de Programação
 
   At06. Desenvolvimento OO com TDD
 
