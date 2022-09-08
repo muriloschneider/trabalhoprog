@@ -8,12 +8,19 @@ Deve ser entregue as classes do sistema e as classes de teste.
 O trabalho deve conter os seguintes requisitos:
 
    > Implementar todos os relacionamentos estudados: associação, agregação, composição, herança e dependência;
+   
    > Uso de classes e métodos abstratos;
+   
    > Atributos e métodos estáticos
+   
    > Cada método deve possuir ao menos um teste implementado
+   
    > Ao menos 3 CRUDs completos
+   
    > O projeto deve estar no github e será hospedado em um servidor fornecido pela professora
+   
    > Cada equipe deve conter 4 alunos
+   
    > O projeto deve ter uma página sobre a equipe e função de cada membro
  
   No dia da entrega os alunos deve entregar o projeto finalizado e apresentar o projeto desenvolvido para a turma.
