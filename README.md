@@ -11,17 +11,17 @@ O trabalho deve conter os seguintes requisitos:
    
    > Uso de classes e métodos abstratos;
    
-   > Atributos e métodos estáticos
+   > Atributos e métodos estáticos;
    
-   > Cada método deve possuir ao menos um teste implementado
+   > Cada método deve possuir ao menos um teste implementado;
    
-   > Ao menos 3 CRUDs completos
+   > Ao menos 3 CRUDs completos;
    
-   > O projeto deve estar no github e será hospedado em um servidor fornecido pela professora
+   > O projeto deve estar no github e será hospedado em um servidor fornecido pela professora;
    
-   > Cada equipe deve conter 4 alunos
+   > Cada equipe deve conter 4 alunos;
    
-   > O projeto deve ter uma página sobre a equipe e função de cada membro
+   > O projeto deve ter uma página sobre a equipe e função de cada membro.
  
   No dia da entrega os alunos deve entregar o projeto finalizado e apresentar o projeto desenvolvido para a turma.
   
