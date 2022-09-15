@@ -46,6 +46,9 @@
                 <div class="campoNome">
                     <label>Nome</label> <br> <input type="text" name="sla" placeholder="Insira alguma coisa">
                 </div>
+                <div class="campoCPF">
+                    <label>CPF</label> <br> <input type="text" name="sla" placeholder="Insira seu CPF">
+                </div>
                 <div class="campoSenha">
                     <label>Senha</label> <br> <input type="password" name="sla2" placeholder="Insira uma senha">
                 </div>
