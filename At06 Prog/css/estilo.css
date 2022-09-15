@@ -73,6 +73,7 @@ header li a {
 
 header li a:hover {
     background-color: #244b48;
+    box-shadow: 0 4px 8px rgb(137, 137, 137);
 }
 
 .container{
@@ -105,7 +106,7 @@ header li a:hover {
     padding: 10px 10px;
     transition: all 0.3s ease 0s;
     border: none;
-    box-shadow: 0 4px 8px rgb(137, 137, 137);
+    /* box-shadow: 0 4px 8px rgb(137, 137, 137); */
     border-radius: 5px;
 }
 
@@ -113,6 +114,7 @@ header li a:hover {
     color: #b2dfdb;
     letter-spacing: 0.08em;
     background-color: #244b48;
+    box-shadow: 0 4px 8px rgb(137, 137, 137);
 }
 
 h2{
@@ -145,6 +147,16 @@ h2{
     align-self: flex-end;
 }
 
+.campoCPF input{
+    display: flex;
+    align-self: flex-end;
+}
+
+.campoCPF label{
+    display: flex;
+    align-self: flex-start;
+}
+
 .campoSenha label{
     display: flex;
     align-self: flex-start;
@@ -161,10 +173,10 @@ label{
     color: #b2dfdb;
 }
 
-.campoNome input, .campoSenha input{
+.campoNome input, .campoCPF input, .campoSenha input{
     box-shadow: 0 4px 8px rgb(137, 137, 137);
     background-color: #b2dfdb;
     border: none;
     border-radius: 5px;
-    padding: 8px 8px;
+    padding: 0.7em 0.7em;
 }
