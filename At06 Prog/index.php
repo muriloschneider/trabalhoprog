@@ -42,19 +42,16 @@
         <main class="container">
             <hr class="linha1">
             <h2>Cadastrar</h2>
-            <form action="" class="forms">
+            <form action="acao/acao.php" class="forms" method="POST">
                 <div class="campoNome">
-                    <label>Nome</label> <br> <input type="text" name="sla" placeholder="Insira alguma coisa">
+                    <label>Nome da cidade</label> <br> <input type="text" name="cidade" placeholder="Insira o nome da cidade">
                 </div>
                 <div class="campoCPF">
-                    <label>CPF</label> <br> <input type="text" name="sla" placeholder="Insira seu CPF">
-                </div>
-                <div class="campoSenha">
-                    <label>Senha</label> <br> <input type="password" name="sla2" placeholder="Insira uma senha">
+                    <label>Estado</label> <br> <input type="text" name="estado" placeholder="Insira o estado">
                 </div>
                 <br>
                 <div class="entrar">
-                <input type="submit" value="Cadastrar">
+                <input type="submit" name="acao" value="Cadastrar">
                 </div>
             </form>
             <hr class="linha2">
