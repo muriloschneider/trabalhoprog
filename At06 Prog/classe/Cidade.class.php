@@ -15,7 +15,7 @@
         public function setId($id){if($id > 0){$this->id = $id;}}
         public function getId(){return $this->id;}
 
-        public function setNome($nomeCid){if($nomeCid > 0){$this->nomeCid = $nomeCid;}}
+        public function setNome($nomeCid){if(strlen($nomeCid) > 0){$this->nomeCid = $nomeCid;}}
         public function getNome(){return $this->nomeCid;}
 
         public function setEstado($estado){if($estado != ""){$this->estado = $estado;}}

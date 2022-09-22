@@ -1,7 +1,7 @@
 <?php
     // Banco de Dados
     define('HOST', 'localhost');  
-    define('DBNAME', 'TCC');    
+    define('DBNAME', 'ibge');    
     define('USER', 'root');  
     define('PASSWORD', '');
 

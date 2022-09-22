@@ -84,9 +84,9 @@
         <center>
         <table>
             <tr>
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Estado</th>
-                <th>Ações</th>
                 <th>Editar</th>
                 <th>Excluir</th>
             </tr>
