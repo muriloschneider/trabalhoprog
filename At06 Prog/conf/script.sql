@@ -5,7 +5,7 @@
     -- Table `ibge`.`cidade`
     -- -----------------------------------------------------
     CREATE TABLE IF NOT EXISTS `ibge`.`cidade` (
-    `idcidade` INT NOT NULL,
+    `idcidade` INT NOT NULL AUTO_INCREMENT,
     `nome_cidade` VARCHAR(250) NULL,
     `estado` VARCHAR(250) NULL,
     PRIMARY KEY (`idcidade`))
@@ -16,7 +16,7 @@
     -- Table `ibge`.`entrevistador`
     -- -----------------------------------------------------
     CREATE TABLE IF NOT EXISTS `ibge`.`entrevistador` (
-    `identrevistador` INT NOT NULL,
+    `identrevistador` INT NOT NULL AUTO_INCREMENT,
     `nome_entrevistador` VARCHAR(250) NULL,
     `cpf` VARCHAR(250) NULL,
     `cidade` INT NOT NULL,
