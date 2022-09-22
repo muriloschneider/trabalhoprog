@@ -137,22 +137,22 @@ h2{
     size: 1em;
 }
 
-.campoNome label{
+.campoCidade label{
     display: flex;
     align-self: flex-start;
 }
 
-.campoNome input{
+.campoCidade input{
     display: flex;
     align-self: flex-end;
 }
 
-.campoCPF input{
+.campoEstado input{
     display: flex;
     align-self: flex-end;
 }
 
-.campoCPF label{
+.campoEstado label{
     display: flex;
     align-self: flex-start;
 }
@@ -173,10 +173,14 @@ label{
     color: #b2dfdb;
 }
 
-.campoNome input, .campoCPF input, .campoSenha input{
+.campoCidade input, .campoEstado input, .campoSenha input{
     box-shadow: 0 4px 8px rgb(137, 137, 137);
     background-color: #b2dfdb;
     border: none;
     border-radius: 5px;
     padding: 0.7em 0.7em;
+}
+
+table{
+    color: #b2dfdb;
 }

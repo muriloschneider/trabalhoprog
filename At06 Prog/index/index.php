@@ -9,22 +9,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/index.js"></script>
     <title>IBGE</title>
 
     <style>
         @font-face {
             font-family: "amoux";
-            src: url(fonts/AMOÜX.ttf);
+            src: url(../fonts/AMOÜX.ttf);
         }
 
         @font-face {
             font-family: "rocket";
-            src: url(fonts/ROCKET.ttf);
+            src: url(../fonts/ROCKET.ttf);
         }
 
         @font-face {
             font-family: "maves";
-            src: url(fonts/Maves-Regular.ttf);
+            src: url(../fonts/Maves-Regular.ttf);
         }
     </style>
 
@@ -62,18 +63,17 @@
         <main class="container">
             <hr class="linha1">
             <h2>Cadastrar</h2>
-            <form action="../acao/acao.php" class="forms" method="POST">
+            <form action="../acao/acao.php" class="forms" method="POST" id="form-cidade">
                 <input type="hidden" name="id" value="<?php if(isset($id)){ echo $id;} else{ echo "";}?>">
-                <div class="campoNome">
+                <div class="campoCidade">
                     <label>Nome da cidade</label> <br> <input type="text" value="<?php if(isset($cidade)){ echo $cidade;} else{ echo "";}?>" name="cidade" placeholder="Insira o nome da cidade">
                 </div>
-                <div class="campoCPF">
-                    <label>Estado</label> 
-                    <input type="text" name="estado" id="estado" value="<?php if(isset($estado)){ echo $estado;} else{ echo "";}?>">
+                <div class="campoEstado">
+                    <label>Estado</label> <br> <input type="text" name="estado" id="estado" value="<?php if(isset($estado)){ echo $estado;} else{ echo "";}?>" placeholder="Insira o nome do estado">
                 </div>
                 <br>
                 <div class="entrar">
-                <input type="submit" name="acao" value="<?php if($acao){echo $acao;} else{echo "Cadastrar";}?>">
+                <input id="acao" type="submit" name="acao" value="<?php if($acao){echo $acao;} else{echo "Cadastrar";}?>">
                 </div>
             </form>
             <hr class="linha2">
@@ -84,8 +84,8 @@
         <center>
         <table>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
+                <th>Id</th>
+                <th>Cidade</th>
                 <th>Estado</th>
                 <th>Editar</th>
                 <th>Excluir</th>
