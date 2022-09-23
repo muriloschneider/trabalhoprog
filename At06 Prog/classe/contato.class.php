@@ -73,7 +73,7 @@
         public function Excluir(){
             try{
                 $sql = "DELETE FROM `ibge`.`contato` WHERE `idcontato` = :idcontato";
-                $param = array( ":idcontato" => $this->getId());
+                $param = array( ":idcontato" => $this->getIdcontato());
                 $row = parent::Execute($sql,$param);
                 return $row;
             }catch(Exception $e){

@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `ibge`.`entrevistador` (
   `identrevistador` INT NOT NULL AUTO_INCREMENT,
   `nome_entrevistador` VARCHAR(250) NULL,
   `cpf` VARCHAR(250) NULL,
-  `cidade` INT NOT NULL,
+  `cidade` INT NOT NULL, 
   PRIMARY KEY (`identrevistador`),
   CONSTRAINT `fk_entrevistador_cidade1`
     FOREIGN KEY (`cidade`)

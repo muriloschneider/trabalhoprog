@@ -7,13 +7,13 @@
 
         
         public function __construct($id,$nomeCid,$estado){
-            $this->setId($id);
+            $this->setIdCid($id); 
             $this->setNome($nomeCid);
             $this->setEstado($estado);
         }
 
-        public function setId($id){if($id > 0){$this->id = $id;}}
-        public function getId(){return $this->id;}
+        public function setIdCid($id){if($id > 0){$this->id = $id;}}
+        public function getIdCid(){return $this->id;}
 
         public function setNome($nomeCid){if(strlen($nomeCid) > 0){$this->nomeCid = $nomeCid;}}
         public function getNome(){return $this->nomeCid;}
@@ -55,7 +55,7 @@
                 $sql = "UPDATE ibge.cidade SET nome_cidade = :nome_cidade, estado = :estado WHERE idcidade = :idcidade";
                 $param = array( ":nome_cidade" => $this->getNome(),
                                 ":estado" => $this->getEstado(),
-                                ":idcidade" => $this->getId());
+                                ":idcidade" => $this->getIdCid());
                 return parent::Execute($sql,$param);
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";
@@ -65,13 +65,13 @@
         public function Excluir(){
             try{
                 $sql = "DELETE FROM `ibge`.`cidade` WHERE `idcidade` = :idcidade";
-                $param = array( ":idcidade" => $this->getId());
+                $param = array( ":idcidade" => $this->getIdCid());
                 $row = parent::Execute($sql,$param);
                 return $row;
             }catch(Exception $e){
                 echo "Erro ao excluir: ('{$e->getMessage()}')\n{$e}\n";
             }
         }
-    }
+    }      
     
 ?>

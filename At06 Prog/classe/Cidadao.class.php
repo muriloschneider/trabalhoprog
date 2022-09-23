@@ -1,5 +1,7 @@
 <?php
 
+    require_once('autoload.class.php');
+
     class Cidadao extends BancoDados{
         private $id;
         private $nome;
@@ -21,6 +23,7 @@
             $this->setRaca($raca);
             $this->setNascimento($nascimento);
             $this->setEntrevistador($entrevistador);
+            $this->setCidade($cidade);
         }
 
         public function setId($id){if($id > 0){$this->id = $id;}}
@@ -59,8 +62,8 @@
                                 ":renda" => $this->getRenda(),
                                 ":raca" => $this->getRaca(),
                                 ":nascimento" => $this->getNascimento(),
-                                ":entrevistador" => $this->getEntrevistador()->getId(),
-                                ":cidade" => $this->getCidade()->getId());
+                                ":entrevistador" => $this->getEntrevistador()->getIdEnt(),
+                                ":cidade" => $this->getCidade()->getIdCid());
                 $row = parent::Execute($sql,$param);
                 return $row;
             }catch(Exception $e){
@@ -115,6 +118,21 @@
         }
     }
 
-    $var = new Cidadao(null, 'Pedro', '123.123.123-21', 'Engenheiro', 'R$ 2000', 'Branco', '21/10/2000', new Entrevistador(1,'pedro' , '123123', new Cidade(null, 'Agronomica', 'SC')), new Cidade(null, 'agronomica', 'SC'))
-    
+    // $cidade = new Cidade(2, 'Agronomica', 'SC');
+
+    // $cidade->Salvar();
+
+    // $entrevistador = new Entrevistador(1,'Pedro' , '123.123.122-14', $cidade);
+
+    // $entrevistador->Salvar();
+
+    // $var = new Cidadao( 1, 'Pedro', '123.123.123-21', 'Engenheiro', 'R$ 2000', 
+    //                     'Branco', '21/10/2000', $entrevistador, $cidade);
+
+    // $final = $var->Salvar();
+
+    // echo "<pre>";
+    // var_dump($var);
+    // echo "</pre>";
+
 ?>

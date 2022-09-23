@@ -37,8 +37,8 @@ class BancoDados{
             $conexao = self::Instancia();
             $comando = $conexao->prepare($sql); 
             $comando = self::Vincular($comando,$param); 
-            $comando->execute(); 
         try{
+            $comando->execute(); 
             return $comando->fetchAll(); 
         } catch(Exception $e){
             throw new Exception("Erro na execução ". $e->getMessage()); 

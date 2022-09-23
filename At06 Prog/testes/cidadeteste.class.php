@@ -6,7 +6,7 @@
     {
         public function testeConstrutor(){
             $cidade = new Cidade(1,'Rio do sul', 'Santa Catarina');
-            $this->$this->assertEquals(1, $cidade->getId());
+            $this->$this->assertEquals(1, $cidade->getIdCid());
         }
     }
 ?>

@@ -8,15 +8,15 @@
         private $cidadeEnt;
 
         
-        public function __construct($id,$nomeEnt,$cpfEnt, $cidadeEnt){
-            $this->setId($id);
+        public function __construct($id,$nomeEnt,$cpfEnt, Cidade $cidadeEnt){
+            $this->setIdEnt($id);
             $this->setNomeEnt($nomeEnt);
             $this->setCpfEnt($cpfEnt);
             $this->setCidEnt($cidadeEnt);
         }
 
-        public function setId($id){if($id > 0){$this->id = $id;}}
-        public function getId(){return $this->id;}
+        public function setIdEnt($id){if($id > 0){$this->id = $id;}}
+        public function getIdEnt(){return $this->id;}
 
         public function setNomeEnt($nomeEnt){if(strlen($nomeEnt) > 0){$this->nomeEnt = $nomeEnt;}}
         public function getNomeEnt(){return $this->nomeEnt;}
@@ -32,8 +32,7 @@
                 $sql = "INSERT INTO `ibge`.`entrevistador` (`nome_entrevistador`, `cpf`, `cidade`) VALUES (:nome_entrevistador,:cpf, :cidade)";
                 $param = array( ":nome_entrevistador" => $this->getNomeEnt()
                                 ,":cpf" => $this->getCpfEnt()
-                                ,":cidade" => $this->getCidEnt()
-                            );
+                                ,":cidade" => $this->getCidEnt()->getIdCid());
                 $row = parent::Execute($sql,$param);
                 return $row;
             }catch(Exception $e){
@@ -63,7 +62,7 @@
                 $sql = "UPDATE ibge.entrevistador SET nome_entrevistador = :nome_entrevistador, cpf = :cpf WHERE identrevistador = :identrevistador";
                 $param = array( ":nome_entrevistador" => $this->getNomeEnt(),
                                 ":cpf" => $this->getCpfEnt(),
-                                ":cidade" => $this->getCidEnt());
+                                ":cidade" => $this->getCidEnt()->getIdCid());
                 return parent::Execute($sql,$param);
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";
@@ -73,7 +72,7 @@
         public function Excluir(){
             try{
                 $sql = "DELETE FROM `ibge`.`entrevistador` WHERE `identrevistador` = :identrevistador";
-                $param = array( ":identrevistador" => $this->getId());
+                $param = array( ":identrevistador" => $this->getIdEnt());
                 $row = parent::Execute($sql,$param);
                 return $row;
             }catch(Exception $e){
@@ -82,8 +81,4 @@
         }
     }
     
-?>
-    }
-    
-
-?>
+?>  
