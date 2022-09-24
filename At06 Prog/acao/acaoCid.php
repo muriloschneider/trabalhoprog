@@ -6,6 +6,10 @@ $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
 if(empty($acao)){
     $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
 }
+$id = isset($_POST['id']) ? $_POST['id'] : 0;
+if(empty($id)){
+    $id = isset($_GET['id']) ? $_GET['id'] : 0;
+}
 
 $nomecid = isset($_POST['nome']) ? $_POST['nome'] : "";
 $cpfcid = isset($_POST['cpf']) ? $_POST['cpf'] : "";
@@ -20,17 +24,17 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 
 // echo    "Ação: $acao <br>". "Nome: $nomecid <br>". "Cpf: $cpfcid <br>". 
 //         "Profissao: $profissao <br>". "Renda: $renda <br>". "Raça: $raca <br>". 
-//         "Data de nascimento: $nascimento <br>". "Entrevistador: $entrevistador <br>". 
-//         "Cidade: $cidade <br>";
+//         "Data de nascimento: $nascimento <br>". "Entrevistador: $ident <br>". 
+//         "Cidade: $idcid <br>";
 
     if ($acao == "Enviar"){ 
 
-        $listar = Cidade::Listar($tipo = 1, $info = $idcid);
+        $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
 
         $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
                                 $listar[0]['estado']);
 
-        $listar = Entrevistador::Listar($tipo = 1, $info = $ident);
+        $listar = Entrevistador::Listagem($tipo = 1, $info = $ident);
 
         $entrevistadorobj = new Entrevistador(  $listar[0]['identrevistador'],
                                                 $listar[0]['nome_entrevistador'],
@@ -44,9 +48,49 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 
     }
 
+
+    if ($acao = "Editar") {
+        $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
+
+        $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
+                                $listar[0]['estado']);
+
+        $listar = Entrevistador::Listagem($tipo = 1, $info = $ident);
+
+        $entrevistadorobj = new Entrevistador(  $listar[0]['identrevistador'],
+                                                $listar[0]['nome_entrevistador'],
+                                                $listar[0]['cpf'],$cidadeobj);
+
+        $cidadaoobj = new Cidadao(  $id,$nomecid,$cpfcid,$profissao,
+                                    $renda,$raca,$nascimento,$entrevistadorobj,
+                                    $cidadeobj);
+        
+        $final = $cidadaoobj->Editar();
+    }
+
+
+    if ($acao == "Excluir") {
+        $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
+
+        $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
+                                $listar[0]['estado']);
+
+        $listar = Entrevistador::Listagem($tipo = 1, $info = $ident);
+
+        $entrevistadorobj = new Entrevistador(  $listar[0]['identrevistador'],
+                                                $listar[0]['nome_entrevistador'],
+                                                $listar[0]['cpf'],$cidadeobj);
+
+        $cidadaoobj = new Cidadao(  $id,$nomecid,$cpfcid,$profissao,
+                                    $renda,$raca,$nascimento,$entrevistadorobj,
+                                    $cidadeobj);
+
+        $final = $cidadaoobj->Excluir();
+    }
+
     if ($final) {
-        echo "Cadastrado com sucesso!";
+        header("Location: ../index/cidadao.php");
+    } else {
+        echo "Erro";
     }
-    else {
-        echo "Erro ao cadastrar!";
-    }
+?>

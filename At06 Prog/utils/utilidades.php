@@ -1,6 +1,6 @@
 <?php
     function Listar($tipo, $info){
-            $lista = Cidade::Listar($tipo,$info);
+            $lista = Cidade::Listagem($tipo,$info);
             foreach ($lista as $item) {
             echo "
             <tr>
@@ -14,7 +14,7 @@
     }
 
     function ListarCidadao($tipo, $info){
-        $lista = Cidadao::Listar($tipo,$info);
+        $lista = Cidadao::Listagem($tipo,$info);
         foreach ($lista as $item) {
         echo "
         <tr>
@@ -47,13 +47,13 @@
     }
 
     function ListarEntrevistador($selecao){
-        $lista = Entrevistador::Listar();
+        $lista = Entrevistador::Listagem();
         var_dump($lista);
         return Exibir(array('identrevistador','nome_entrevistador'),$lista, $selecao);
     }
 
     function ListarCidade($selecao){
-        $lista = Cidade::Listar();
+        $lista = Cidade::Listagem();
         var_dump($lista);
         return Exibir(array('idcidade','nome_cidade'),$lista, $selecao);
     }

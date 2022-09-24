@@ -34,7 +34,7 @@
         }
 
         
-        public static function Listar($tipo = 0, $info = ""){
+        public static function Listagem($tipo = 0, $info = ""){
             try{
                 $sql = "SELECT * FROM ibge.cidade";
                 if($tipo > 0)

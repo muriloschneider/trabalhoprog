@@ -34,7 +34,7 @@
 
     if ($acao == "Excluir") {
 
-        $cidade = Cidade::Listar($tipo = 1, $info = $id);
+        $cidade = Cidade::Listagem($tipo = 1, $info = $id);
         $cidade = new Cidade($id,$cidade[0]['nome_cidade'], $cidade[0]['estado']);
         $final = $cidade->Excluir();
 

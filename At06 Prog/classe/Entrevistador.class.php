@@ -1,4 +1,5 @@
 <?php
+    require_once('autoload.class.php');
 
     class Entrevistador extends BancoDados{
 
@@ -6,7 +7,6 @@
         private $nomeEnt;
         private $cpfEnt;
         private $cidadeEnt;
-
         
         public function __construct($id,$nomeEnt,$cpfEnt, Cidade $cidadeEnt){
             $this->setIdEnt($id);
@@ -29,7 +29,8 @@
 
         public function Salvar(){
             try{
-                $sql = "INSERT INTO `ibge`.`entrevistador` (`nome_entrevistador`, `cpf`, `cidade`) VALUES (:nome_entrevistador,:cpf, :cidade)";
+                $sql =  "INSERT INTO `ibge`.`entrevistador` (`nome_entrevistador`, `cpf`, `cidade`) 
+                        VALUES (:nome_entrevistador,:cpf, :cidade)";
                 $param = array( ":nome_entrevistador" => $this->getNomeEnt()
                                 ,":cpf" => $this->getCpfEnt()
                                 ,":cidade" => $this->getCidEnt()->getIdCid());
@@ -41,7 +42,7 @@
         }
 
         
-        public static function Listar($tipo = 0, $info = ""){
+        public static function Listagem($tipo = 0, $info = ""){
             try{
                 $sql = "SELECT * FROM ibge.entrevistador";
                 if($tipo > 0)
@@ -59,7 +60,8 @@
 
         public function Editar(){
             try{
-                $sql = "UPDATE ibge.entrevistador SET nome_entrevistador = :nome_entrevistador, cpf = :cpf WHERE identrevistador = :identrevistador";
+                $sql =  "UPDATE ibge.entrevistador SET nome_entrevistador = :nome_entrevistador, 
+                        cpf = :cpf WHERE identrevistador = :identrevistador";
                 $param = array( ":nome_entrevistador" => $this->getNomeEnt(),
                                 ":cpf" => $this->getCpfEnt(),
                                 ":cidade" => $this->getCidEnt()->getIdCid());

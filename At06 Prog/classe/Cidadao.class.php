@@ -72,7 +72,7 @@
         }
 
         
-        public static function Listar($tipo = 0, $info = ""){
+        public static function Listagem($tipo = 0, $info = ""){
             try{
                 $sql = "SELECT * FROM ibge.cidadao";
                 if($tipo > 0)
@@ -90,16 +90,18 @@
 
         public function Editar(){
             try{
-                $sql = "UPDATE `ibge`.`cidadao`  SET nome = :nome, cpf = :cpf, profissao = :profissao, renda = renda, raca = raca, nascimento = nascimento, entrevistador = entrevistador, cidade = cidade WHERE idcidadao = :idcidadao";
+                $sql = "UPDATE `ibge`.`cidadao`  SET nome = :nome, cpf = :cpf, 
+                        profissao = :profissao, renda = :renda, raca = :raca, nascimento = :nascimento, 
+                        entrevistador = :entrevistador, cidade = :cidade WHERE idcidadao = :idcidadao";
                 $param = array( ":nome" => $this->getNome(),
                                 ":cpf" => $this->getCpf(),
-                                ":profissao" => $this->getCpf(),
+                                ":profissao" => $this->getProfissao(),
                                 ":renda" => $this->getRenda(),
                                 ":raca" => $this->getRaca(),
                                 ":nascimento" => $this->getNascimento(),
                                 ":idcidadao" => $this->getId(),
-                                ":entrevistador" => $this->getEntrevistador()->getId(),
-                                ":cidade" => $this->getCidade()->getId());
+                                ":entrevistador" => $this->getEntrevistador()->getIdEnt(),
+                                ":cidade" => $this->getCidade()->getIdCid());
                 return parent::Execute($sql,$param);
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";
@@ -117,22 +119,4 @@
             }
         }
     }
-
-    // $cidade = new Cidade(2, 'Agronomica', 'SC');
-
-    // $cidade->Salvar();
-
-    // $entrevistador = new Entrevistador(1,'Pedro' , '123.123.122-14', $cidade);
-
-    // $entrevistador->Salvar();
-
-    // $var = new Cidadao( 1, 'Pedro', '123.123.123-21', 'Engenheiro', 'R$ 2000', 
-    //                     'Branco', '21/10/2000', $entrevistador, $cidade);
-
-    // $final = $var->Salvar();
-
-    // echo "<pre>";
-    // var_dump($var);
-    // echo "</pre>";
-
 ?>

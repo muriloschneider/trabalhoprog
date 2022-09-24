@@ -36,8 +36,8 @@
 
     if ($acao == "Excluir") {
 
-        $entrevistador = Entrevistador::Listar($tipo = 1, $info = $id);
-        $entrevistador = new Entrevistador($id,$entrevistador[0]['nome_Entrevistador'], $entrevistador[0]['estado']);
+        $entrevistador = Entrevistador::Listagem($tipo = 1, $info = $id);
+        $entrevistador = new Entrevistador($id,$entrevistador[0]['cpf'], $entrevistador[0]['estado'], $entrevistador[0]['cidade']);
         $final = $entrevistador->Excluir();
 
     }
