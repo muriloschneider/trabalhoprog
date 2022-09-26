@@ -6,46 +6,57 @@
     if(empty($acao)){
         $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     }
+    $id = isset($_POST['id']) ? $_POST['id'] : "";
 
-    $nomeEnt = isset($_POST['nome_entrevistador']) ? $_POST['nome_entrevistador'] : "";
+    $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
     
     $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : "";
 
-    $cidade = isset($_POST['cidade']) ? $_POST['cidade'] : "";
+    $cidade = isset($_POST['idCid']) ? $_POST['idCid'] : "";
 
-    $identrevistador = isset($_POST['identrevistador']) ? $_POST['identrevistador'] : "";
-    if(empty($identrevistador)){
-        $identrevistador = isset($_GET['identrevistador']) ? $_GET['identrevistador'] : "";
-    }
+    echo "Ação: " .$acao. " Nome: " .$nome. " Cpf: " .$cpf. " Cidade: " .$cidade. "<br>";
 
-    
+    if($acao == 'Enviar'){
+        $listar = Cidade::Listagem($tipo = 1, $info = $cidade);
 
-    if($acao == 'Cadastrar'){
+        $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
+                                $listar[0]['estado']);
+                                
+        $entrevistador = new Entrevistador(null,$nome, $cpf, $cidadeobj);
 
-        $entrevistador = new Entrevistador(null,$nomeEnt, $cpf, $cidade);
         $final = $entrevistador->Salvar();
     }
 
 
 
-    if ($acao == "Editar") {
-        $entrevistador = new Entrevistador($identrevistador,$nomeEnt,$cpf,$cidade);
+    else if ($acao == "Editar") {
+        $listar = Cidade::Listagem($tipo = 1, $info = $cidade);
+
+        $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
+                                $listar[0]['estado']);
+
+        $entrevistador = new Entrevistador($id,$nome,$cpf,$cidadeobj);
+
         $final = $entrevistador->Editar();
 
     }
 
-    if ($acao == "Excluir") {
+    else if ($acao == "Excluir") {
+        $listar = Cidade::Listagem($tipo = 1, $info = $cidade);
+
+        $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
+                                $listar[0]['estado']);
 
         $entrevistador = Entrevistador::Listagem($tipo = 1, $info = $id);
-        $entrevistador = new Entrevistador($id,$entrevistador[0]['cpf'], $entrevistador[0]['estado'], $entrevistador[0]['cidade']);
+        $entrevistador = new Entrevistador($id,$entrevistador[0]['cpf'], $entrevistador[0]['estado'], $cidadeobj);
         $final = $entrevistador->Excluir();
 
     }
 
-    if ($final) {
-        header("Location: ../index/index.php");
-    } else {
-        echo "Erro";
-    }
+    // if ($final) {
+    //     header("Location: ../index/index.php");
+    // } else {
+    //     echo "Erro";
+    // }
 
 ?>

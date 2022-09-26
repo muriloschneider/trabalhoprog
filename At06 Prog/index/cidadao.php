@@ -43,7 +43,7 @@
                 echo ListarCidade($cid[0]['cidade']);
             ?>
         </select>
-        <input type="submit" name="acao" value="<?php if($acao=="Editar")echo "Editar"; else echo "Enviar"; ?>"" >
+        <input type="submit" name="acao" value="<?php if($acao=="Editar")echo "Editar"; else echo "Enviar"; ?>">
     </form>
     <center>
         <table border="1px">

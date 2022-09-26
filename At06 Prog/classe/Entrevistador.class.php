@@ -5,14 +5,14 @@
 
         private $id;
         private $nomeEnt;
-        private $cpfEnt;
-        private $cidadeEnt;
+        private $cpf;
+        private $cidade;
         
-        public function __construct($id,$nomeEnt,$cpfEnt, Cidade $cidadeEnt){
+        public function __construct($id,$nomeEnt,$cpf, Cidade $cidade){
             $this->setIdEnt($id);
             $this->setNomeEnt($nomeEnt);
-            $this->setCpfEnt($cpfEnt);
-            $this->setCidEnt($cidadeEnt);
+            $this->setCpfEnt($cpf);
+            $this->setCidEnt($cidade);
         }
 
         public function setIdEnt($id){if($id > 0){$this->id = $id;}}
@@ -21,11 +21,11 @@
         public function setNomeEnt($nomeEnt){if(strlen($nomeEnt) > 0){$this->nomeEnt = $nomeEnt;}}
         public function getNomeEnt(){return $this->nomeEnt;}
 
-        public function setCpfEnt($CpfEnt){if($CpfEnt != ""){$this->CpfEnt = $CpfEnt;}}
-        public function getCpfEnt(){return $this->CpfEnt;}
+        public function setCpfEnt($cpf){if($cpf != ""){$this->cpf = $cpf;}}
+        public function getCpfEnt(){return $this->cpf;}
 
-        public function setCidEnt($cidadeEnt){if($cidadeEnt != ""){$this->CidEnt = $cidadeEnt;}}
-        public function getCidEnt(){return $this->CidEnt;}
+        public function setCidEnt($cidade){if($cidade != ""){$this->cidade = $cidade;}}
+        public function getCidEnt(){return $this->cidade;}
 
         public function Salvar(){
             try{
@@ -60,11 +60,11 @@
 
         public function Editar(){
             try{
-                $sql =  "UPDATE ibge.entrevistador SET nome_entrevistador = :nome_entrevistador, 
-                        cpf = :cpf WHERE identrevistador = :identrevistador";
+                $sql =  "UPDATE ibge.entrevistador SET nome_entrevistador = :nome_entrevistador, cpf = :cpf, cidade = :cidade WHERE identrevistador = :identrevistador";
                 $param = array( ":nome_entrevistador" => $this->getNomeEnt(),
                                 ":cpf" => $this->getCpfEnt(),
-                                ":cidade" => $this->getCidEnt()->getIdCid());
+                                ":cidade" => $this->getCidEnt()->getIdCid(),
+                                ":identrevistador" => $this->getIdEnt());
                 return parent::Execute($sql,$param);
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";

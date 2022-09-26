@@ -28,9 +28,24 @@
             <td>".$item['entrevistador']."</td>
             <td>".$item['cidade']."</td>
             <td><a href='cidadao.php?acao=Editar&id=".$item['idcidadao']."'>Editar</a></td>
-            <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcidadao']."'>Excluir</a></td>
+            <td><a href='../acao/acaoCid.php?acao=Excluir&id=".$item['idcidadao']."'>Excluir</a></td>
         </tr>";
     }
+}
+
+function ListarEnt($tipo, $info){
+    $lista = Entrevistador::Listagem($tipo,$info);
+    foreach ($lista as $item) {
+    echo "
+    <tr>
+        <td>".$item['identrevistador']."</td>
+        <td>".$item['nome_entrevistador']."</td>
+        <td>".$item['cpf']."</td>
+        <td>".$item['cidade']."</td>
+        <td><a href='entrevistador.php?acao=Editar&id=".$item['identrevistador']."'>Editar</a></td>
+        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['identrevistador']."'>Excluir</a></td>
+    </tr>";
+}
 }
 
     function Exibir($chave, $dado, $selecao = 0){

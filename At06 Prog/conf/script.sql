@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `ibge`.`entrevistador` (
   CONSTRAINT `fk_entrevistador_cidade1`
     FOREIGN KEY (`cidade`)
     REFERENCES `ibge`.`cidade` (`idcidade`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE no action
+    ON UPDATE no action)
 ENGINE = InnoDB;
 
 
@@ -61,13 +61,13 @@ CREATE TABLE IF NOT EXISTS `ibge`.`cidadao` (
   CONSTRAINT `fk_cidadao_entrevistador`
     FOREIGN KEY (`entrevistador`)
     REFERENCES `ibge`.`entrevistador` (`identrevistador`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE no action
+    ON UPDATE no action,
   CONSTRAINT `fk_cidadao_cidade1`
     FOREIGN KEY (`cidade`)
     REFERENCES `ibge`.`cidade` (`idcidade`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE no action
+    ON UPDATE no action)
 ENGINE = InnoDB;
 
 
@@ -83,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `ibge`.`contato` (
   CONSTRAINT `fk_contato_cidadao1`
     FOREIGN KEY (`idcidadao`)
     REFERENCES `ibge`.`cidadao` (`idcidadao`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE no action
+    ON UPDATE no action)
 ENGINE = InnoDB;
 
 

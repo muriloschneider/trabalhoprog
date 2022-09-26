@@ -49,7 +49,8 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
     }
 
 
-    if ($acao = "Editar") {
+    if ($acao == "Editar") {
+        
         $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
 
         $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
@@ -70,12 +71,14 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 
 
     if ($acao == "Excluir") {
-        $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
+        $listagem = Cidadao::Listagem(1,$id);
+
+        $listar = Cidade::Listagem($tipo = 1, $info = $listagem[0]['cidade']);
 
         $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
                                 $listar[0]['estado']);
 
-        $listar = Entrevistador::Listagem($tipo = 1, $info = $ident);
+        $listar = Entrevistador::Listagem($tipo = 1, $info = $listagem[0]['entrevistador']);
 
         $entrevistadorobj = new Entrevistador(  $listar[0]['identrevistador'],
                                                 $listar[0]['nome_entrevistador'],
