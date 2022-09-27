@@ -57,14 +57,9 @@
         $cidadao = cidadao::Listagem($tipo = 1, $info = $id);
         $cidadao = new cidadao($idcidadao,$nome, $cpf, $profissao, $renda, $raca, $nascimento, $entrevistador, $cidade);
         
-        $final = $cidadao->Excluir();
+        $final = $contato->Excluir();
 
     }
 
-    // if ($final) {
-    //     header("Location: ../index/index.php");
-    // } else {
-    //     echo "Erro";
-    // }
 
 ?>
