@@ -9,7 +9,7 @@ body {
     font-size: 16px;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(-45deg, #000000, #0a8045, #000000, #0a8045);
+    background: linear-gradient(-45deg, #bdb144, #0a8045, #bdb144, #0a8045);
     background-size: 400% 400%;
     animation: Gradient 10s ease infinite;
     margin: 0;
@@ -29,6 +29,12 @@ body {
 }
 
 /* Header */
+
+header{
+    position: sticky;
+    top: 0;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
@@ -38,12 +44,23 @@ header {
     box-shadow: 0 4px 8px rgb(76, 76, 76);
 }
 
+header h1{
+    margin-left: -10.2em;
+}
+
 #nav-title {
+    /* display: flex;
+    justify-content: flex-end; */
+    align-items: flex-start;
     font-family: 'maves';
     color: aliceblue;
     margin-right: auto;
     font-size: 2.5em;
     font-weight: lighter;
+}
+
+.logo{
+    width: 20%;
 }
 
 header li {
@@ -181,6 +198,34 @@ label{
     padding: 0.7em 0.7em;
 }
 
-table{
+table, td, th{
     color: #b2dfdb;
+    border-bottom: 2px solid #515555;
+    padding: 5px 5px;
+    /* box-shadow: 0 4px 8px rgb(109, 109, 109); */
+}
+
+table{
+    margin-top: 2em;
+    border-collapse: collapse;
+    /* border-radius: 5px; */
+    width: 50%;
+}
+
+td{
+    text-align: center;
+}
+
+/* #itensTabelas:hover{
+    background-color: #b2dfdb;
+    color: #000000;
+}
+
+#itensTabelas td:hover{
+    color: #000000;
+} */
+
+th{
+    /* background-color: #ffffff; */
+    color: #373a3a;
 }
