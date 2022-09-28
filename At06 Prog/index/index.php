@@ -35,15 +35,10 @@
         if (empty($acao)) {
             $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
         }
-        $cidade = isset($_POST['cidade']) ? $_POST['cidade'] : '';
-        if (empty($cidade)) {
-            $cidade = isset($_GET['cidade']) ? $_GET['cidade'] : '';
-        }
-        $estado = isset($_POST['estado']) ? $_POST['estado'] : '';
-        if (empty($estado)) {
-            $estado = isset($_GET['estado']) ? $_GET['estado'] : '';
-        }
         $id = isset($_GET['id']) ? $_GET['id'] : '';
+        
+        if($acao == 'Editar')
+            $lista = Cidade::Listagem(1,$id);
     ?>
 
 </head>
@@ -65,17 +60,17 @@
         <main class="container">
             <hr class="linha1">
             <h2>Cadastrar</h2>
-            <form action="../acao/acao.php" class="forms" method="POST" id="form-cidade">
-                <input type="hidden" name="id" value="<?php if(isset($id)){ echo $id;} else{ echo "";}?>">
+            <form id='form-cidade' class="forms" method="POST" >
+                <input type="hidden" id="id" name="id" value="<?php if(isset($lista)){ echo $lista[0]['idcidade'];} else{ echo "";}?>">
                 <div class="campoCidade">
-                    <label>Nome da cidade</label> <br> <input type="text" value="<?php if(isset($cidade)){ echo $cidade;} else{ echo "";}?>" name="cidade" placeholder="Insira o nome da cidade">
+                    <label>Nome da cidade</label> <br> <input type="text" id="cidade" value="<?php if(isset($lista)){ echo $lista[0]['nome_cidade'];} else{ echo "";}?>" name="cidade" placeholder="Insira o nome da cidade">
                 </div>
                 <div class="campoEstado">
-                    <label>Estado</label> <br> <input type="text" name="estado" id="estado" value="<?php if(isset($estado)){ echo $estado;} else{ echo "";}?>" placeholder="Insira o nome do estado">
+                    <label>Estado</label> <br> <input type="text" name="estado" id="estado" value="<?php if(isset($lista)){ echo $lista[0]['estado'];} else{ echo "";}?>" placeholder="Insira o nome do estado">
                 </div>
                 <br>
                 <div class="entrar">
-                <input id="acao" type="submit" name="acao" value="<?php if($acao){echo $acao;} else{echo "Cadastrar";}?>">
+                    <input id="acao" type="submit" name="acao" value="<?php if($acao){echo $acao;} else{echo "Cadastrar";}?>">
                 </div>
             </form>
             <hr class="linha2">
@@ -92,10 +87,12 @@
                 <th>Editar</th>
                 <th>Excluir</th>
             </tr>
-            <?php
-                Listar(0,"");
-            ?>
+            <tbody id="resultado">
+
+            </tbody>
         </table>
         </center>
+        <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
+        <script src="../js/ajax.js"></script>
 </body>
 </html>

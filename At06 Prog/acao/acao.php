@@ -2,6 +2,8 @@
 
     require_once('../classe/autoload.class.php');
 
+    header('Content-Type: application/json');
+
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     if(empty($acao)){
         $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
@@ -16,10 +18,7 @@
         $id = isset($_GET['id']) ? $_GET['id'] : "";
     }
 
-    
-
-    if($acao == 'Cadastrar'){
-
+    if($acao == "Cadastrar"){
         $cidade = new Cidade(null,$nomeCid, $estado);
         $final = $cidade->Salvar();
     }
@@ -41,9 +40,9 @@
     }
 
     if ($final) {
-        header("Location: ../index/index.php");
+       echo json_encode('Salvo');
     } else {
-        echo "Erro";
+        echo json_encode("Erro");
     }
 
 ?>
