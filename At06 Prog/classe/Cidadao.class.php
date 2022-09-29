@@ -12,10 +12,10 @@
         private $nascimento;
         private $entrevistador;
         private $cidade;
-        private $contato = [];
+        private $contato;
         
         
-        public function __construct($id, $nome, $cpf, $profissao, $renda, $raca, $nascimento, Entrevistador $entrevistador, Cidade $cidade){
+        public function __construct($id, $nome, $cpf, $profissao, $renda, $raca, $nascimento, Entrevistador $entrevistador, Cidade $cidade,$contato, $telefone,$email){
             $this->setId($id);
             $this->setNome($nome);
             $this->setCpf($cpf);
@@ -25,6 +25,7 @@
             $this->setNascimento($nascimento);
             $this->setEntrevistador($entrevistador);
             $this->setCidade($cidade);
+            $this->setContato($contato,$telefone,$email,$id);
         }
 
         public function setId($id){if($id > 0){$this->id = $id;}}
@@ -54,10 +55,9 @@
         public function setCidade($cidade){$this->cidade = $cidade;}
         public function getCidade(){return $this->cidade;}
 
-        public function setContato($idcontato,$telefone,$email, $idcidadao){
-            $this->contato[] = new Contato($idcontato,$telefone,$email, $idcidadao);
+        public function setContato($contato,$telefone,$email, $idcidadao){
+            $this->contato = new Contato($contato,$telefone,$email, $idcidadao);
         }
-
 
         public function Salvar(){
             try{
@@ -71,6 +71,8 @@
                                 ":entrevistador" => $this->getEntrevistador()->getIdEnt(),
                                 ":cidade" => $this->getCidade()->getIdCid());
                 $row = parent::Execute($sql,$param);
+                $this->contato->setidcidadao($row);
+                $this->contato->Salvar();
                 return $row;
             }catch(Exception $e){
                 echo "Erro ao salvar: ('{$e->getMessage()}')\n{$e}\n";
@@ -108,7 +110,10 @@
                                 ":idcidadao" => $this->getId(),
                                 ":entrevistador" => $this->getEntrevistador()->getIdEnt(),
                                 ":cidade" => $this->getCidade()->getIdCid());
-                return parent::Execute($sql,$param);
+                $row = parent::Execute($sql,$param);
+                $this->contato->setidcidadao($this->getId());
+                $row2 = $this->contato->Editar();
+                return $row && $row2;
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";
             }
@@ -118,8 +123,9 @@
             try{
                 $sql = "DELETE FROM `ibge`.`cidadao` WHERE `idcidadao` = :idcidadao";
                 $param = array( ":idcidadao" => $this->getId());
+                $row2 =  $this->contato->Excluir();
                 $row = parent::Execute($sql,$param);
-                return $row;
+                return $row && $row2;
             }catch(Exception $e){
                 echo "Erro ao excluir: ('{$e->getMessage()}')\n{$e}\n";
             }

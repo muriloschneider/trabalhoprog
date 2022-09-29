@@ -48,7 +48,7 @@ function ListarEnt($tipo, $info){
 }
 }
 
-function ListarContato($tipo, $info){
+function ListarCont($tipo, $info){
     $lista = Contato::Listagem($tipo,$info);
     foreach ($lista as $item) {
     echo "
@@ -70,7 +70,7 @@ function ListarContato($tipo, $info){
             if($selecao > 0 && $linha[$chave[0]] == $selecao){
                 $check = "selected";
             }
-            $str .= "<option ".$check." value='".$linha[$chave[0]]."'>Nome: ".$linha[$chave[1]]."</option>";
+            $str .= "<option ".$check." value='".$linha[$chave[0]]."'>".$linha[$chave[1]]."</option>";
             $check = "";
         }
         return $str;
@@ -87,6 +87,9 @@ function ListarContato($tipo, $info){
         var_dump($lista);
         return Exibir(array('idcidade','nome_cidade'),$lista, $selecao);
     }
-
+    function ListarCidadaoCont($selecao){
+        $lista = Cidadao::Listagem();
+        return Exibir(array('id','nome'),$lista,$selecao);
+    }
     
 ?>

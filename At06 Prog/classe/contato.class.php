@@ -47,6 +47,7 @@
                 if($tipo > 0)
                     switch ($tipo) {
                         case '1': $sql .= " WHERE idcontato = :info"; break;
+                        case '2': $sql .= " WHERE idcidadao = :info"; break;
                     }
                     $param = array();
                         if($tipo > 0)
@@ -62,8 +63,9 @@
                 $sql = "UPDATE ibge.contato SET telefone = :telefone, email = :email WHERE idcontato = :idcontato";
                 $param = array( ":telefone" => $this->gettelefone(),
                                 ":email" => $this->getemail(),
-                                ":idcidadao" => $this->getidcidadao());
-                return parent::Execute($sql,$param);
+                                ":idcontato" => $this->getIdcontato());
+                $row = parent::Execute($sql,$param);
+                return $row;
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";
             }

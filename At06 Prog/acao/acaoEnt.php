@@ -16,12 +16,14 @@
 
     echo "Ação: " .$acao. " Nome: " .$nome. " Cpf: " .$cpf. " Cidade: " .$cidade. "<br>";
 
-    if($acao == 'Enviar'){
-        $listar = Cidade::Listagem($tipo = 1, $info = $cidade);
+    if($acao == 'Cadastrar'){
+        $listar = Cidade::Listagem($tipo = 1, $info = $cidade); 
 
         $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
                                 $listar[0]['estado']);
-                                
+        
+        var_dump($cidadeobj);
+
         $entrevistador = new Entrevistador(null,$nome, $cpf, $cidadeobj);
 
         $final = $entrevistador->Salvar();
@@ -48,15 +50,17 @@
                                 $listar[0]['estado']);
 
         $entrevistador = Entrevistador::Listagem($tipo = 1, $info = $id);
+
         $entrevistador = new Entrevistador($id,$entrevistador[0]['cpf'], $entrevistador[0]['estado'], $cidadeobj);
+        
         $final = $entrevistador->Excluir();
 
     }
 
-    // if ($final) {
-    //     header("Location: ../index/index.php");
-    // } else {
-    //     echo "Erro";
-    // }
+    if ($final) {
+        header("Location: ../index/entrevistador.php");
+    } else {
+        echo "Erro";
+    }
 
 ?>

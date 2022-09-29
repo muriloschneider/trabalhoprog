@@ -16,10 +16,15 @@ $cpfcid = isset($_POST['cpf']) ? $_POST['cpf'] : "";
 $profissao = isset($_POST['profissao']) ? $_POST['profissao'] : "";
 $renda = isset($_POST['renda']) ? $_POST['renda'] : "";
 $raca = isset($_POST['raca']) ? $_POST['raca'] : "";
+
 $nascimento = isset($_POST['nascimento']) ? $_POST['nascimento'] : "";
 $nascimento = date('Y-m-d', strtotime($nascimento));
+
+$telefone = isset($_POST['telefone']) ? $_POST['telefone'] : "";
+$email = isset($_POST['email']) ? $_POST['email'] : "";
 $ident = isset($_POST['entrevistador']) ? $_POST['entrevistador'] : "";
 $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
+$idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
 
 
 // echo    "Ação: $acao <br>". "Nome: $nomecid <br>". "Cpf: $cpfcid <br>". 
@@ -42,7 +47,7 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 
         $cidadaoobj = new Cidadao(  null,$nomecid,$cpfcid,$profissao,
                                     $renda,$raca,$nascimento,$entrevistadorobj,
-                                    $cidadeobj);
+                                    $cidadeobj,null,$telefone,$email);
 
         $final = $cidadaoobj->Salvar();
 
@@ -50,6 +55,7 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 
 
     if ($acao == "Editar") {
+
         
         $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
 
@@ -62,15 +68,18 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
                                                 $listar[0]['nome_entrevistador'],
                                                 $listar[0]['cpf'],$cidadeobj);
 
-        $cidadaoobj = new Cidadao(  $id,$nomecid,$cpfcid,$profissao,
+        $cidadaoobj = new Cidadao($id,$nomecid,$cpfcid,$profissao,
                                     $renda,$raca,$nascimento,$entrevistadorobj,
-                                    $cidadeobj);
-        
+                                    $cidadeobj,$idcontato,$telefone,$email);
+        // echo '<pre>';
+        //     var_dump($cidadaoobj);
+        //     die();
         $final = $cidadaoobj->Editar();
     }
 
 
     if ($acao == "Excluir") {
+
         $listagem = Cidadao::Listagem(1,$id);
 
         $listar = Cidade::Listagem($tipo = 1, $info = $listagem[0]['cidade']);
@@ -84,9 +93,9 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
                                                 $listar[0]['nome_entrevistador'],
                                                 $listar[0]['cpf'],$cidadeobj);
 
-        $cidadaoobj = new Cidadao(  $id,$nomecid,$cpfcid,$profissao,
+        $cidadaoobj = new Cidadao($id,$nomecid,$cpfcid,$profissao,
                                     $renda,$raca,$nascimento,$entrevistadorobj,
-                                    $cidadeobj);
+                                    $cidadeobj,$idcontato,$telefone,$email);
 
         $final = $cidadaoobj->Excluir();
     }

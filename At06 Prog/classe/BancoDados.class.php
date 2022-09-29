@@ -27,7 +27,13 @@ class BancoDados{
             $comando = $conexao->prepare($sql);
             $comando = self::Vincular($comando,$param); 
         try {
-            return $comando->execute(); 
+            if($comando->execute()){
+                // echo $comando->errorInfo();
+                return $conexao->lastInsertId() or true;
+            } 
+            
+                return false;
+            
         } catch(Exception $e){
            throw new Exception("Erro na execução ". $e->getMessage()); 
         } 

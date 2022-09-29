@@ -11,7 +11,16 @@
     if(empty($id)){
         $id = isset($_GET['id']) ? $_GET['id'] : 0;
     }
-    $cid = Cidadao::Listagem($tipo = 1, $info = $id);
+
+    $cont = Contato::Listagem($tipo = 2, $info = $id);
+    
+    // var_dump($cont);
+
+    // die();
+
+    $cid = Cidadao::Listagem($tipo = 1, $info = $id );
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +74,7 @@
             <h2>Cadastrar</h2>
     <form id='form-cidade' class="forms" action="../acao/acaoCid.php" method="post">
         <input type="hidden" name="id" id="id" value="<?php if($acao=="Editar")echo $id; else echo ""; ?>">
+        <input type="text" name="idcontato" id="idcontato" value="<?php if($acao=="Editar")echo $cont[0]['idcontato']; else echo ""; ?>">
         <div class="campoCidade">
             <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>">
         </div>
@@ -82,6 +92,12 @@
         </div>
         <div class="campoEstado">
             <label for="">Data de nascimento: </label> <br> <input type="date" name="nascimento" id="nascimento" value="<?php if($acao=="Editar")echo $cid[0]['nascimento']; else echo ""; ?>"><br>
+        </div>
+        <div class="campoEstado">
+            <label for="">Email: </label> <br> <input type="text" name="email" id="email" value="<?php if($acao=="Editar")echo $cont[0]['email']; else echo ""; ?>"><br>
+        </div>
+        <div class="campoEstado">
+            <label for="">Telefone: </label> <br> <input type="text" name="telefone" id="telefone" value="<?php if($acao=="Editar")echo $cont[0]['telefone']; else echo ""; ?>"><br>
         </div>
         <div class="campoEstado">    
             <label for="">Entrevistador: </label>
@@ -118,6 +134,8 @@
                 <th>Data de nascimento</th>
                 <th>Entrevistador</th>
                 <th>Cidade</th>
+                <th>Telefone</th>
+                <th>Email</th>
                 <th>Editar</th>
                 <th>Excluir</th>
             </tr>
