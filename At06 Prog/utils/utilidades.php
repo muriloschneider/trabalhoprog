@@ -7,8 +7,8 @@
                 <td>".$item['idcidade']."</td>
                 <td>".$item['nome_cidade']."</td>
                 <td>".$item['estado']."</td>
-                <td><a href='index.php?acao=Editar&id=".$item['idcidade']."&cidade=".$item['nome_cidade']."&estado=".$item['estado']."'>Editar</a></td>
-                <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcidade']."'>Excluir</a></td>
+                <td><a href='index.php?acao=Editar&id=".$item['idcidade']."&cidade=".$item['nome_cidade']."&estado=".$item['estado']."'><img src='../img/pencil-square.svg' alt=''></a></td>
+                <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcidade']."'><img src='../img/trash-fill.svg' alt=''></a></td>
             </tr>";
         }
     }
@@ -27,8 +27,8 @@
             <td>".$item['nascimento']."</td>
             <td>".$item['entrevistador']."</td>
             <td>".$item['cidade']."</td>
-            <td><a href='cidadao.php?acao=Editar&id=".$item['idcidadao']."'>Editar</a></td>
-            <td><a href='../acao/acaoCid.php?acao=Excluir&id=".$item['idcidadao']."'>Excluir</a></td>
+            <td><a href='cidadao.php?acao=Editar&id=".$item['idcidadao']."'><img src='../img/pencil-square.svg' alt=''></a></td>
+            <td><a href='../acao/acaoCid.php?acao=Excluir&id=".$item['idcidadao']."'><img src='../img/trash-fill.svg' alt=''></a></td>
         </tr>";
     }
 }
@@ -42,8 +42,8 @@ function ListarEnt($tipo, $info){
         <td>".$item['nome_entrevistador']."</td>
         <td>".$item['cpf']."</td>
         <td>".$item['cidade']."</td>
-        <td><a href='entrevistador.php?acao=Editar&id=".$item['identrevistador']."'>Editar</a></td>
-        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['identrevistador']."'>Excluir</a></td>
+        <td><a href='entrevistador.php?acao=Editar&id=".$item['identrevistador']."'><img src='../img/pencil-square.svg' alt=''></a></td>
+        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['identrevistador']."'><img src='../img/trash-fill.svg' alt=''></a></td>
     </tr>";
 }
 }
@@ -57,8 +57,8 @@ function ListarCont($tipo, $info){
         <td>".$item['telefone']."</td>
         <td>".$item['email']."</td>
         <td>".$item['idcidadao']."</td>
-        <td><a href='contato.php?acao=Editar&id=".$item['idcontato']."'>Editar</a></td>
-        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcontato']."'>Excluir</a></td>
+        <td><a href='contato.php?acao=Editar&id=".$item['idcontato']."'><img src='../img/pencil-square.svg' alt=''></a></td>
+        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcontato']."'><img src='../img/trash-fill.svg' alt=''></a></td>
     </tr>";
 }
 }
