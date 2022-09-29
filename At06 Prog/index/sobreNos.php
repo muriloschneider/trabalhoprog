@@ -64,7 +64,7 @@
             </div>
             <div class="fotos">
                 <img src="../img/fotoJoao.jpg" alt="">
-                <h4>João Espíndola</h4>
+                <h4>João Espidola</h4>
                 <p>Desenvolvedor Back-End <br> (PROGRAMAÇÃO)</p>
             </div>
             <div class="fotos">

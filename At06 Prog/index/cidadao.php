@@ -66,19 +66,19 @@
     <form id='form-cidade' class="forms" action="../acao/acaoCid.php" method="post">
         <input type="hidden" name="id" id="id" value="<?php if($acao=="Editar")echo $id; else echo ""; ?>">
         <div class="campoCidade">
-            <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>">
+            <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>" placeholder="Insira o seu nome">
         </div>
         <div class="campoEstado">
-            <label for="">Cpf: </label> <br> <input type="text" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>">
+            <label for="">Cpf: </label> <br> <input type="text" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>" placeholder="Insira o seu CPF">
         </div>
         <div class="campoEstado">
-            <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>"><br>
+            <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>" placeholder="Isira a sua profissão"><br>
         </div>
         <div class="campoEstado">
-            <label for="">Renda: </label> <br> <input type="text" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>">
+            <label for="">Renda: </label> <br> <input type="text" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>" placeholder="Isira a sua renda">
         </div>
         <div class="campoEstado">
-            <label for="">Raça: </label> <br> <input type="text" name="raca" id="raca" value="<?php if($acao=="Editar")echo $cid[0]['raca']; else echo ""; ?>">
+            <label for="">Raça: </label> <br> <input type="text" name="raca" id="raca" value="<?php if($acao=="Editar")echo $cid[0]['raca']; else echo ""; ?>" placeholder="Insira a sua raça">
         </div>
         <div class="campoEstado">
             <label for="">Data de nascimento: </label> <br> <input type="date" name="nascimento" id="nascimento" value="<?php if($acao=="Editar")echo $cid[0]['nascimento']; else echo ""; ?>"><br>
