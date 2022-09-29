@@ -48,6 +48,21 @@ function ListarEnt($tipo, $info){
 }
 }
 
+function ListarContato($tipo, $info){
+    $lista = Contato::Listagem($tipo,$info);
+    foreach ($lista as $item) {
+    echo "
+    <tr>
+        <td>".$item['idcontato']."</td>
+        <td>".$item['telefone']."</td>
+        <td>".$item['email']."</td>
+        <td>".$item['idcidadao']."</td>
+        <td><a href='contato.php?acao=Editar&id=".$item['idcontato']."'>Editar</a></td>
+        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcontato']."'>Excluir</a></td>
+    </tr>";
+}
+}
+
     function Exibir($chave, $dado, $selecao = 0){
         $str = "<option value=0>Selecione</option>";
         $check="";

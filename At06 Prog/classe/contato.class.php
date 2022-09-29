@@ -6,7 +6,6 @@
         private $telefone;
         private $email;
         private $idcidadao;
-
         
         public function __construct($idcontato,$telefone,$email, $idcidadao){
             $this->setIdcontato($idcontato);
@@ -42,7 +41,7 @@
         }
 
         
-        public static function Listar($tipo = 0, $info = ""){
+        public static function Listagem($tipo = 0, $info = ""){
             try{
                 $sql = "SELECT * FROM ibge.contato";
                 if($tipo > 0)

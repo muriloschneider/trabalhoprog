@@ -117,7 +117,5 @@
         <br>
         <br>
     </center>
-    <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
-    <script src="../js/ajax.js"></script>
 </body>
 </html>

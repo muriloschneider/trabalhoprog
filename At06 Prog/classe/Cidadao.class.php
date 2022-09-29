@@ -12,7 +12,8 @@
         private $nascimento;
         private $entrevistador;
         private $cidade;
-
+        private $contato = [];
+        
         
         public function __construct($id, $nome, $cpf, $profissao, $renda, $raca, $nascimento, Entrevistador $entrevistador, Cidade $cidade){
             $this->setId($id);
@@ -52,6 +53,11 @@
 
         public function setCidade($cidade){$this->cidade = $cidade;}
         public function getCidade(){return $this->cidade;}
+
+        public function setContato($idcontato,$telefone,$email, $idcidadao){
+            $this->contato[] = new Contato($idcontato,$telefone,$email, $idcidadao);
+        }
+
 
         public function Salvar(){
             try{
@@ -119,4 +125,11 @@
             }
         }
     }
+
+    // $cidade = new Cidade(1,'Agronomica','SC');
+    // $entrevistador = new Entrevistador(1,'Pedro','123.123.123-10', $cidade);
+    // $cidadao = new Cidadao(1, 'João', '900.000.100-10', 'profissao', 'R$ 1000', 'Branco', '10/12/2000', $entrevistador, $cidade);
+    // $cidadao->setContato(1,'+55 (47) 988841791','Joao@gmail.com', 1);
+    // echo "<pre>";
+    // var_dump($cidadao);
 ?>
