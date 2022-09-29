@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="shortcut icon" href="../img/logoIBGE.png">
     <script src="../js/index.js"></script>
-    <title>IBGE</title>
+    <title>IBGE - Cidades</title>
 
     <style>
         @font-face {
@@ -49,9 +49,11 @@
             <h1 id="nav-title"><a href="index.php">ibge</a></h1>
             <nav>
                 <ul>
-                    <li><a href="#">Projetos</a></li>
-                    <li><a href="#">Cadastrar</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="index.php">Cidades</a></li>
+                    <li><a href="entrevistador.php">Entrevistador</a></li>
+                    <li><a href="contato.php">Contato</a></li>
+                    <li><a href="cidadao.php">Cidadão</a></li>
+                    <li class="sobreNos"><a href="sobreNos.php">Sobre</a></li>
                 </ul>
             </nav>
         </header>
@@ -91,7 +93,10 @@
 
             </tbody>
         </table>
+        <br>
+        <br>
         </center>
+        
         <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
         <script src="../js/ajax.js"></script>
 </body>
