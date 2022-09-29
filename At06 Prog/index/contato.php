@@ -39,17 +39,17 @@
         if(empty($idcontato)){
             $idcontato = isset($_GET['idcontato']) ? $_GET['idcontato'] : 0;
         }
-        $telefone = isset($_POST['te$telefone']) ? $_POST['te$telefone'] : 0;
+        $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : 0;
         if(empty($telefone)){
-            $telefone = isset($_GET['te$telefone']) ? $_GET['te$telefone'] : 0;
+            $telefone = isset($_GET['telefone']) ? $_GET['telefone'] : 0;
         }
         $email = isset($_POST['email']) ? $_POST['email'] : 0;
         if(empty($email)){
             $email = isset($_GET['email']) ? $_GET['email'] : 0;
         }
-        $cidadaoobj = isset($_POST['ci$cidadaoobj']) ? $_POST['ci$cidadaoobj'] : 0;
+        $cidadaoobj = isset($_POST['cidadaoobj']) ? $_POST['cidadaoobj'] : 0;
         if(empty($cidadaoobj)){
-            $cidadaoobj = isset($_GET['ci$cidadaoobj']) ? $_GET['ci$cidadaoobj'] : 0;
+            $cidadaoobj = isset($_GET['cidadaoobj']) ? $_GET['cidadaoobj'] : 0;
         }
 
         $cont = contato::Listar($idcontato, $telefone, $email, $cidadaoobj);
@@ -84,13 +84,13 @@
         <div class="campoEstado">
             <label for="">email: </label> <br> <input type="text" name="email" id="email" value="<?php if($acao=="Editar")echo $ent[0]['cpf']; else echo ""; ?>">
         </div>
-        <select name="idCid">
+        <!-- <select name="idcidadao">
             <?php
-               echo ListarContato($cont[0]['idcontato']);
+              // echo ListarCidadao($cont[0]['idcidadao']);
             ?>
-        </select>
+        </select> -->
         <div class="entrar">
-            <input type="submit" name="acao" value="">
+            <input type="submit" name="acao" value="acao">
         </div>
     </form>
     <hr class="linha2">
@@ -111,7 +111,7 @@
 
             </tbody>
             <?php
-                ListarContato(0, "");
+                ListarCidadao(0, "", "");
             ?>
         </table>
         <br>

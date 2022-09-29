@@ -14,7 +14,6 @@
 
     $idcidadao = isset($_POST['idcidadao']) ? $_POST['idcidadao'] : "";
 
-    // echo "Ação: " .$acao. " Nome: " .$nome. " Cpf: " .$cpf. " Cidade: " .$cidade. "<br>";
 
     if($acao == 'Enviar'){
         $listar = contato::Listagem($tipo = 1, $info = contato);
