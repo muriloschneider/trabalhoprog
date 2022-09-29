@@ -54,34 +54,26 @@
             <main class="container1">
             <div class="fotos">
                 <img src="../img/fotoUjj.jpg" alt="">
-                <h5>Pedro Ujj</h5>
-                <p>Desenvolvedor Front-End</p>
+                <h4>Pedro Ujj</h4>
+                <p>Desenvolvedor Front-End <br> (INTERFACE)</p>
             </div>
             <div class="fotos">
                 <img src="../img/fotoCelio.png" alt="">
-                <h5>Célio Nogueira</h5>
-                <p>Desenvolvedor Front-End</p>
+                <h4>Célio Nogueira</h4>
+                <p>Desenvolvedor Back-End <br> (BANCO DE DADOS)</p>
             </div>
             <div class="fotos">
                 <img src="../img/fotoJoao.jpg" alt="">
-                <h5>João Espíndola</h5>
-                <p>Desenvolvedor Front-End</p>
+                <h4>João Espíndola</h4>
+                <p>Desenvolvedor Back-End <br> (PROGRAMAÇÃO)</p>
             </div>
             <div class="fotos">
                 <img src="../img/fotoMurilo.jpg" alt="">
-                <h5>Murilo Schneider</h5>
-                <p>Desenvolvedor Front-End</p>
+                <h4>Murilo Schneider</h4>
+                <p>Desenvolvedor Back-End <br> (CONTROLE DE VERSÃO)</p>
             </div>
         </main>
         </center>
-        
-        <br><br><br>
-        <center>
-        <br>
-        <br>
-        </center>
-        
-        <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
-        <script src="../js/ajax.js"></script>
+
 </body>
 </html>

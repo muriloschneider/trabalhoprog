@@ -210,6 +210,11 @@ label{
     padding: 0.7em 0.7em;
 }
 
+.selectCid label{
+    display: flex;
+    align-self: flex-start;
+}
+
 
 table, td, th{
     color: #b2dfdb;
@@ -253,11 +258,13 @@ th{
 }
 
 main img{
-    max-width: 100%;
+    /* max-width: 100%; */
     border-radius: 20%;
+    width: auto;
     max-height: 100%;
-    object-fit: contain;
+    /* object-fit: contain; */
     /* padding: 10px 10px; */
+    box-shadow: 5px 5px 8px rgb(109, 109, 109);
 }
 
 .container1{
@@ -267,6 +274,18 @@ main img{
     align-content: center;
     margin-top: 4%;
     gap: 0em 5em;
-    width: 6em;
-    height: 6em;
+    /* width: 500px; */
+    height: 250px;
 } 
+
+h4{
+    font-family: 'rocket';
+    font-weight: 900;
+    color: #b2dfdb;
+    margin-top: 1em;
+}
+
+.fotos p{
+    color: #b2dfdb;
+    margin-top: 0.5em;
+}

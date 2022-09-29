@@ -55,6 +55,7 @@
                     <li><a href="entrevistador.php">Entrevistador</a></li>
                     <li><a href="contato.php">Contato</a></li>
                     <li><a href="cidadao.php">Cidadão</a></li>
+                    <li><a href="sobreNos.php">Sobre</a></li>
                 </ul>
             </nav>
         </header>
@@ -72,6 +73,7 @@
                     <label for="">Cpf: </label> <br> <input type="text" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $ent[0]['cpf']; else echo ""; ?>" placeholder="Insira o seu CPF">
                 </div>
                 <div class="selectCid">
+                    <label for="">Cidade:</label> <br>
                 <select name="idCid">
                     <?php
                     echo ListarCidade($ent[0]['cidade']);

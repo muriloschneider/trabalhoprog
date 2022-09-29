@@ -83,20 +83,22 @@
         <div class="campoEstado">
             <label for="">Data de nascimento: </label> <br> <input type="date" name="nascimento" id="nascimento" value="<?php if($acao=="Editar")echo $cid[0]['nascimento']; else echo ""; ?>"><br>
         </div>
-        <div class="campoEstado">    
-            <label for="">Entrevistador: </label>
-        </div>
+        <div class="selectCid">
+                    <label for="">Entrevistador:</label> <br>
             <select name="entrevistador" id="entrevistador">
             <?php
                 echo ListarEntrevistador($cid[0]['entrevistador']);
             ?>
         </select>
-        <label for="">Sua cidade: </label>
+        </div>
+        <div class="selectCid">
+                    <label for="">Sua cidade:</label> <br>
         <select name="cidade" id="cidade">
             <?php
                 echo ListarCidade($cid[0]['cidade']);
             ?>
         </select>
+        </div>
         <div class="entrar">
         <input type="submit" name="acao" value="<?php if($acao=="Editar")echo "Editar"; else echo "Enviar"; ?>">
         </div>
