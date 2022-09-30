@@ -93,9 +93,13 @@ $idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
                                                 $listar[0]['nome_entrevistador'],
                                                 $listar[0]['cpf'],$cidadeobj);
 
-        $cidadaoobj = new Cidadao($id,$nomecid,$cpfcid,$profissao,
-                                    $renda,$raca,$nascimento,$entrevistadorobj,
-                                    $cidadeobj,$idcontato,$telefone,$email);
+        $listar = Cidadao::listagem(1,$id);
+
+        $list = Contato::Listagem(2,$id);
+
+        $cidadaoobj = new Cidadao($id,$listar[0]['nome'],$listar[0]['cpf'],$listar[0]['profissao'],
+                                    $listar[0]['renda'],$listar[0]['raca'],$listar[0]['nascimento'],
+                                    $entrevistadorobj,$cidadeobj,$list[0]['idcontato'],$list[0]['telefone'],$list[0]['email']);
 
         $final = $cidadaoobj->Excluir();
     }

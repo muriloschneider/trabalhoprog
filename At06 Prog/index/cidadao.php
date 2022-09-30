@@ -74,18 +74,18 @@
             <h2>Cadastrar</h2>
     <form id='form-cidade' class="forms" action="../acao/acaoCid.php" method="post">
         <input type="hidden" name="id" id="id" value="<?php if($acao=="Editar")echo $id; else echo ""; ?>">
-        <input type="text" name="idcontato" id="idcontato" value="<?php if($acao=="Editar")echo $cont[0]['idcontato']; else echo ""; ?>">
+        <input type="hidden" name="idcontato" id="idcontato" value="<?php if($acao=="Editar")echo $cont[0]['idcontato']; else echo ""; ?>">
         <div class="campoCidade">
             <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>">
         </div>
         <div class="campoEstado">
-            <label for="">Cpf: </label> <br> <input type="text" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>">
+            <label for="">Cpf: </label> <br> <input type="text" onkeypress="$(this).mask('000.000.000-00');" maxlength="14" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>">
         </div>
         <div class="campoEstado">
             <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>"><br>
         </div>
         <div class="campoEstado">
-            <label for="">Renda: </label> <br> <input type="text" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>">
+            <label for="">Renda: </label> <br> <input type="text" onkeyup="$(this).mask('R$ 000.000,00');" maxlength="13" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>">
         </div>
         <div class="campoEstado">
             <label for="">Raça: </label> <br> <input type="text" name="raca" id="raca" value="<?php if($acao=="Editar")echo $cid[0]['raca']; else echo ""; ?>">
@@ -96,8 +96,8 @@
         <div class="campoEstado">
             <label for="">Email: </label> <br> <input type="text" name="email" id="email" value="<?php if($acao=="Editar")echo $cont[0]['email']; else echo ""; ?>"><br>
         </div>
-        <div class="campoEstado">
-            <label for="">Telefone: </label> <br> <input type="text" name="telefone" id="telefone" value="<?php if($acao=="Editar")echo $cont[0]['telefone']; else echo ""; ?>"><br>
+        <div class="campoEstado">                                                            
+            <label for="">Telefone: </label> <br> <input type="text" onkeypress="$(this).mask('+55 (00) 00000-0000');" maxlength="18" name="telefone" id="telefone" value="<?php if($acao=="Editar")echo $cont[0]['telefone']; else echo ""; ?>"><br>
         </div>
         <div class="campoEstado">    
             <label for="">Entrevistador: </label>
@@ -149,5 +149,7 @@
         <br>
         <br>
     </center>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </body>
 </html>

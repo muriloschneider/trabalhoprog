@@ -51,7 +51,7 @@
                     }
                     $param = array();
                         if($tipo > 0)
-                            $param = array(":info" => $info);   
+                            $param = array(":info" => $info);
                 return parent::Listar($sql,$param);
             }catch(Exception $e){
                 echo "Erro ao listar: ('{$e->getMessage()}')\n{$e}\n";

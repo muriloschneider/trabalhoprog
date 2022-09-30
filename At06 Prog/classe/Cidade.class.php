@@ -40,6 +40,7 @@
                 if($tipo > 0)
                     switch ($tipo) {
                         case '1': $sql .= " WHERE idcidade = :info"; break;
+                        case '2': $sql .= " ORDER BY idcidade"; break;
                     }
                     $param = array();
                         if($tipo > 0)

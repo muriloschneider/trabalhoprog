@@ -51,17 +51,15 @@ class BancoDados{
         } 
     }
 
-    public static function EfetuaLogin($sql, $param=array()){
-        $pdo = Conexao::getInstance();
-                $stmt = $pdo->prepare($sql);
-                $stmt = self::Vincular($stmt,$param);
-                $stmt->execute();
-                $dado = $stmt->fetch();
-            try{
-                return $dado;
-        } catch(Exception $e){
-            throw new Exception("Erro na execução ". $e->getMessage()); 
-        }
-    }
+    public static function Order($sql){ 
+        $conexao = self::Instancia();
+        $comando = $conexao->prepare($sql); 
+    try{
+        $comando->execute();
+        return $comando->fetchAll(); 
+    } catch(Exception $e){
+        throw new Exception("Erro na execução ". $e->getMessage()); 
+    } 
+}
 }
 ?>
