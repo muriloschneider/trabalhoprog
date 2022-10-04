@@ -114,6 +114,19 @@ header li a:hover {
     margin-right: 10em;
 }
 
+.formsCidadao{
+    display: flex;
+    margin-top: 5%;
+    flex-direction: row;
+    row-gap: 2em;
+    column-gap: 2em;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: 5em;
+    max-width: 50%;
+    justify-content: left;
+}
+
 .entrar{
     display: flex;
     align-content: center;
@@ -132,6 +145,32 @@ header li a:hover {
 }
 
 .entrar input:hover{
+    color: #b2dfdb;
+    letter-spacing: 0.08em;
+    background-color: #244b48;
+    box-shadow: 0 4px 8px rgb(137, 137, 137);
+}
+
+.entrarCidadao{
+    display: flex;
+    align-content: center;
+    margin-top: 20%;
+    margin-left: 4em;
+}
+
+.entrarCidadao input{
+    font-family: 'rocket';
+    font-weight: bolder;
+    color: aliceblue;
+    background-color: #000000;
+    padding: 10px 10px;
+    transition: all 0.3s ease 0s;
+    border: none;
+    /* box-shadow: 0 4px 8px rgb(137, 137, 137); */
+    border-radius: 5px;
+}
+
+.entrarCidadao input:hover{
     color: #b2dfdb;
     letter-spacing: 0.08em;
     background-color: #244b48;
@@ -215,6 +254,36 @@ label{
     align-self: flex-start;
 }
 
+.selectCidadao select{
+    box-shadow: 0 4px 8px rgb(137, 137, 137);
+    background-color: #b2dfdb;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7em 0.7em;
+    margin-bottom: 80%;
+}
+
+.selectCidadao label{
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+}
+
+.selectCidadao2 select{
+    box-shadow: 0 4px 8px rgb(137, 137, 137);
+    background-color: #b2dfdb;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7em 0.7em;
+    margin-bottom: 8.5em;
+}
+
+.selectCidadao2 label{
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+}
+
 
 table, td, th{
     color: #b2dfdb;
@@ -259,10 +328,15 @@ th{
 
 main img{
     /* max-width: 100%; */
-    border-radius: 20%;
+    border-radius: 100%;
     width: auto;
     max-height: 100%;
-    /* object-fit: contain; */
+    /* border: 1px solid #000000; */
+    /* object-fit: contain; 
+    
+    - Double;
+    
+    */
     /* padding: 10px 10px; */
     box-shadow: 5px 5px 8px rgb(109, 109, 109);
 }

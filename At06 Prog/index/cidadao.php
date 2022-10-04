@@ -72,48 +72,50 @@
         <main class="container">
             <hr class="linha1">
             <h2>Cadastrar</h2>
-    <form id='form-cidade' class="forms" action="../acao/acaoCid.php" method="post">
+    <form id='form-cidade' class="formsCidadao" action="../acao/acaoCid.php" method="post">
         <input type="hidden" name="id" id="id" value="<?php if($acao=="Editar")echo $id; else echo ""; ?>">
         <input type="hidden" name="idcontato" id="idcontato" value="<?php if($acao=="Editar")echo $cont[0]['idcontato']; else echo ""; ?>">
         <div class="campoCidade">
-            <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>">
+            <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>" placeholder="Insira o seu Nome">
         </div>
         <div class="campoEstado">
-            <label for="">Cpf: </label> <br> <input type="text" onkeypress="$(this).mask('000.000.000-00');" maxlength="14" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>">
+            <label for="">Cpf: </label> <br> <input type="text" onkeypress="$(this).mask('000.000.000-00');" maxlength="14" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>" placeholder="Insira o seu CPF">
         </div>
         <div class="campoEstado">
-            <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>"><br>
+            <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>" placeholder="Insira a sua Profissão">
         </div>
         <div class="campoEstado">
-            <label for="">Renda: </label> <br> <input type="text" onkeyup="$(this).mask('R$ 000.000,00');" maxlength="13" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>">
+            <label for="">Renda: </label> <br> <input type="text" onkeyup="$(this).mask('R$ 000.000,00');" maxlength="13" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>" placeholder="Insira a sua Renda">
         </div>
         <div class="campoEstado">
-            <label for="">Raça: </label> <br> <input type="text" name="raca" id="raca" value="<?php if($acao=="Editar")echo $cid[0]['raca']; else echo ""; ?>">
+            <label for="">Raça: </label> <br> <input type="text" name="raca" id="raca" value="<?php if($acao=="Editar")echo $cid[0]['raca']; else echo ""; ?>" placeholder="Insira a sua Raça">
         </div>
         <div class="campoEstado">
-            <label for="">Data de nascimento: </label> <br> <input type="date" name="nascimento" id="nascimento" value="<?php if($acao=="Editar")echo $cid[0]['nascimento']; else echo ""; ?>"><br>
+            <label for="">Data de nascimento: </label> <br> <input type="date" name="nascimento" id="nascimento" value="<?php if($acao=="Editar")echo $cid[0]['nascimento']; else echo ""; ?>" placeholder="Insira a sua Data de Nascimento">
         </div>
         <div class="campoEstado">
-            <label for="">Email: </label> <br> <input type="text" name="email" id="email" value="<?php if($acao=="Editar")echo $cont[0]['email']; else echo ""; ?>"><br>
+            <label for="">Email: </label> <br> <input type="text" name="email" id="email" value="<?php if($acao=="Editar")echo $cont[0]['email']; else echo ""; ?>" placeholder="Insira o seu Email">
         </div>
         <div class="campoEstado">                                                            
-            <label for="">Telefone: </label> <br> <input type="text" onkeypress="$(this).mask('+55 (00) 00000-0000');" maxlength="18" name="telefone" id="telefone" value="<?php if($acao=="Editar")echo $cont[0]['telefone']; else echo ""; ?>"><br>
+            <label for="">Telefone: </label> <br> <input type="text" onkeypress="$(this).mask('+55 (00) 00000-0000');" maxlength="18" name="telefone" id="telefone" value="<?php if($acao=="Editar")echo $cont[0]['telefone']; else echo ""; ?>" placeholder="Insira o seu Telefone">
         </div>
-        <div class="campoEstado">    
-            <label for="">Entrevistador: </label>
-        </div>
+        <div class="selectCidadao">    
+            <label for="">Entrevistador: </label> <br>
             <select name="entrevistador" id="entrevistador">
             <?php
                 echo ListarEntrevistador($cid[0]['entrevistador']);
             ?>
         </select>
-        <label for="">Sua cidade: </label>
+        </div>
+        <div class="selectCidadao2">
+        <label for="">Sua cidade: </label> <br>
         <select name="cidade" id="cidade">
             <?php
                 echo ListarCidade($cid[0]['cidade']);
             ?>
         </select>
-        <div class="entrar">
+        </div>
+        <div class="entrarCidadao">
         <input type="submit" name="acao" value="<?php if($acao=="Editar")echo "Editar"; else echo "Enviar"; ?>">
         </div>
     </form>
