@@ -25,8 +25,10 @@
             <td>".$item['renda']."</td>
             <td>".$item['raca']."</td>
             <td>".$item['nascimento']."</td>
-            <td>".$item['entrevistador']."</td>
-            <td>".$item['cidade']."</td>
+            <td>".$item['nome_entrevistador']."</td>
+            <td>".$item['nome_cidade']."</td>
+            <td>".$item['telefone']."</td>
+            <td>".$item['email']."</td>
             <td><a href='cidadao.php?acao=Editar&id=".$item['idcidadao']."'><img src='../img/pencil-square.svg' alt=''></a></td>
             <td><a href='../acao/acaoCid.php?acao=Excluir&id=".$item['idcidadao']."'><img src='../img/trash-fill.svg' alt=''></a></td>
         </tr>";
@@ -41,26 +43,12 @@ function ListarEnt($tipo, $info){
         <td>".$item['identrevistador']."</td>
         <td>".$item['nome_entrevistador']."</td>
         <td>".$item['cpf']."</td>
-        <td>".$item['cidade']."</td>
+        <td>".$item['nome_cidade']."</td>
         <td><a href='entrevistador.php?acao=Editar&id=".$item['identrevistador']."'><img src='../img/pencil-square.svg' alt=''></a></td>
         <td><a href='../acao/acao.php?acao=Excluir&id=".$item['identrevistador']."'><img src='../img/trash-fill.svg' alt=''></a></td>
     </tr>";
 }
-}
 
-function ListarCont($tipo, $info){
-    $lista = Contato::Listagem($tipo,$info);
-    foreach ($lista as $item) {
-    echo "
-    <tr>
-        <td>".$item['idcontato']."</td>
-        <td>".$item['telefone']."</td>
-        <td>".$item['email']."</td>
-        <td>".$item['idcidadao']."</td>
-        <td><a href='contato.php?acao=Editar&id=".$item['idcontato']."'><img src='../img/pencil-square.svg' alt=''></a></td>
-        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['idcontato']."'><img src='../img/trash-fill.svg' alt=''></a></td>
-    </tr>";
-}
 }
 
     function Exibir($chave, $dado, $selecao = 0){

@@ -29,7 +29,7 @@ function getCidade(){
                     resultado.firstChild.remove();
                 }
         for (var i = 0; i < result.length; i++) {
-            $('#resultado').prepend('<tr><td>'+result[i].idcidade+'</td><td>'+result[i].nome_cidade+'</td><td>'+result[i].estado+'</td><td><a href="index.php?acao=Editar&id='+result[i].idcidade+'">Editar</a></td><td><a href="../acao/acao.php?acao=Excluir&id='+result[i].idcidade+'">Excluir</a></td></tr>');
+            $('#resultado').prepend('<tr><td>'+result[i].idcidade+'</td><td>'+result[i].nome_cidade+'</td><td>'+result[i].estado+'</td><td><a href="index.php?acao=Editar&id='+result[i].idcidade+'"><img src="../img/pencil-square.svg"></a></td><td><a href="../acao/acao.php?acao=Excluir&id='+result[i].idcidade+'"><img src="../img/trash-fill.svg"></a></td></tr>');
         }
         // console.log(result);
         // console.log('Chegou aqui');

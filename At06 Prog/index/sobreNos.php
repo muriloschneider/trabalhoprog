@@ -40,7 +40,6 @@
                 <ul>
                     <li><a href="index.php">Cidades</a></li>
                     <li><a href="entrevistador.php">Entrevistador</a></li>
-                    <li><a href="contato.php">Contato</a></li>
                     <li><a href="cidadao.php">Cidadão</a></li>
                     <li><a href="sobreNos.php">Sobre</a></li>
                 </ul>
@@ -64,7 +63,7 @@
             </div>
             <div class="fotos">
                 <img src="../img/fotoJoao.jpg" alt="">
-                <h4>João Espidola</h4>
+                <h4>João Guilherme</h4>
                 <p>Desenvolvedor Back-End <br> (PROGRAMAÇÃO)</p>
             </div>
             <div class="fotos">

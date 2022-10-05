@@ -51,7 +51,6 @@
                 <ul>
                     <li><a href="index.php">Cidades</a></li>
                     <li><a href="entrevistador.php">Entrevistador</a></li>
-                    <li><a href="contato.php">Contato</a></li>
                     <li><a href="cidadao.php">Cidadão</a></li>
                     <li class="sobreNos"><a href="sobreNos.php">Sobre</a></li>
                 </ul>

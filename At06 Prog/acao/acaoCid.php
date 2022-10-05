@@ -27,10 +27,11 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 $idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
 
 
-// echo    "Ação: $acao <br>". "Nome: $nomecid <br>". "Cpf: $cpfcid <br>". 
-//         "Profissao: $profissao <br>". "Renda: $renda <br>". "Raça: $raca <br>". 
-//         "Data de nascimento: $nascimento <br>". "Entrevistador: $ident <br>". 
-//         "Cidade: $idcid <br>";
+echo    "Ação: $acao <br>". "Nome: $nomecid <br>". "Cpf: $cpfcid <br>". 
+        "Profissao: $profissao <br>". "Renda: $renda <br>". "Raça: $raca <br>". 
+        "Data de nascimento: $nascimento <br>". "Entrevistador: $ident <br>". 
+        "Cidade: $idcid <br>";
+        die();
 
     if ($acao == "Enviar"){ 
 
@@ -99,7 +100,8 @@ $idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
 
         $cidadaoobj = new Cidadao($id,$listar[0]['nome'],$listar[0]['cpf'],$listar[0]['profissao'],
                                     $listar[0]['renda'],$listar[0]['raca'],$listar[0]['nascimento'],
-                                    $entrevistadorobj,$cidadeobj,$list[0]['idcontato'],$list[0]['telefone'],$list[0]['email']);
+                                    $entrevistadorobj,$cidadeobj,$list[0]['idcontato'],$list[0]['telefone'],
+                                    $list[0]['email']);
 
         $final = $cidadaoobj->Excluir();
     }

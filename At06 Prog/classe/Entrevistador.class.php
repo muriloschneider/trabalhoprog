@@ -48,9 +48,10 @@
                 if($tipo > 0)
                     switch ($tipo) {
                         case '1': $sql .= " WHERE identrevistador = :info"; break;
+                        case '2': $sql .= " inner join cidade on entrevistador.cidade = idcidade"; break;
                     }
                     $param = array();
-                        if($tipo > 0)
+                        if($tipo > 0 && $info != "")
                             $param = array(":info" => $info);   
                 return parent::Listar($sql,$param);
             }catch(Exception $e){

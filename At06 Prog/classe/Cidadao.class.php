@@ -64,7 +64,7 @@
                 $sql = "INSERT INTO `ibge`.`cidadao` (`nome`, `cpf`, `profissao`, `renda`, `raca`, `nascimento`, `entrevistador`, `cidade`) VALUES (:nome, :cpf, :profissao, :renda, :raca, :nascimento, :entrevistador, :cidade)";
                 $param = array( ":nome" => $this->getNome(),
                                 ":cpf" => $this->getCpf(),
-                                ":profissao" => $this->getCpf(),
+                                ":profissao" => $this->getProfissao(),
                                 ":renda" => $this->getRenda(),
                                 ":raca" => $this->getRaca(),
                                 ":nascimento" => $this->getNascimento(),
@@ -86,9 +86,12 @@
                 if($tipo > 0)
                     switch ($tipo) {
                         case '1': $sql .= " WHERE idcidadao = :info"; break;
+                        case '2': $sql .= " inner join cidade on cidadao.cidade = idcidade 
+                        inner join entrevistador on cidadao.entrevistador = identrevistador
+                        inner join contato on cidadao.idcidadao = idcontato"; break;
                     }
                     $param = array();
-                        if($tipo > 0)
+                        if($tipo > 0 && $info != "")
                             $param = array(":info" => $info);   
                 return parent::Listar($sql,$param);
             }catch(Exception $e){

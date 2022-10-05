@@ -61,7 +61,6 @@
                 <ul>
                     <li><a href="index.php">Cidades</a></li>
                     <li><a href="entrevistador.php">Entrevistador</a></li>
-                    <li><a href="contato.php">Contato</a></li>
                     <li><a href="cidadao.php">Cidadão</a></li>
                     <li><a href="sobreNos.php">Sobre</a></li>
                 </ul>
@@ -85,7 +84,7 @@
             <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>" placeholder="Insira a sua Profissão">
         </div>
         <div class="campoEstado">
-            <label for="">Renda: </label> <br> <input type="text" onkeyup="$(this).mask('R$ 000.000,00');" maxlength="13" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>" placeholder="Insira a sua Renda">
+            <label for="">Renda: </label> <br> <input type="text" maxlength="13" name="renda" id="renda" value="<?php if($acao=="Editar")echo $cid[0]['renda']; else echo ""; ?>" placeholder="Insira a sua Renda">
         </div>
         <div class="campoEstado">
             <label for="">Raça: </label> <br> <input type="text" name="raca" id="raca" value="<?php if($acao=="Editar")echo $cid[0]['raca']; else echo ""; ?>" placeholder="Insira a sua Raça">
@@ -145,7 +144,7 @@
 
             </tbody>
             <?php
-                ListarCidadao(0, "");
+                ListarCidadao(2, "");
             ?>
         </table>
         <br>

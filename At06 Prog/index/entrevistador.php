@@ -53,7 +53,6 @@
                 <ul>
                     <li><a href="index.php">Cidades</a></li>
                     <li><a href="entrevistador.php">Entrevistador</a></li>
-                    <li><a href="contato.php">Contato</a></li>
                     <li><a href="cidadao.php">Cidadão</a></li>
                     <li><a href="sobreNos.php">Sobre</a></li>
                 </ul>
@@ -70,7 +69,7 @@
                     <label for="">Nome entrevistador: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $ent[0]['nome_entrevistador']; else echo ""; ?>" placeholder="Insira do seu Nome">
                 </div>
                 <div class="campoEstado">
-                    <label for="">Cpf: </label> <br> <input type="text" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $ent[0]['cpf']; else echo ""; ?>" placeholder="Insira o seu CPF">
+                    <label for="">Cpf: </label> <br> <input type="text" onkeypress="$(this).mask('000.000.000-00');" maxlength="14" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $ent[0]['cpf']; else echo ""; ?>" placeholder="Insira o seu CPF">
                 </div>
                 <div class="selectCid">
                     <label for="">Cidade:</label> <br>
@@ -105,11 +104,13 @@
             </tbody>
 
             <?php
-                ListarEnt(0, "");
+                ListarEnt(2, "");
             ?>
         </table>
     <br>
     <br>
     </center>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </body>
 </html>
