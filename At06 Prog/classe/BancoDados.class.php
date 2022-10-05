@@ -29,7 +29,7 @@ class BancoDados{
         try {
             if($comando->execute()){
                 // echo $comando->errorInfo();
-                return $conexao->lastInsertId() or true;
+                return $conexao->lastInsertId();
             } 
             
                 return false;

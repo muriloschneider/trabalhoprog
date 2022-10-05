@@ -73,7 +73,7 @@
                 $row = parent::Execute($sql,$param);
                 $this->contato->setidcidadao($row);
                 $this->contato->Salvar();
-                return $row;
+                return $row or true;
             }catch(Exception $e){
                 echo "Erro ao salvar: ('{$e->getMessage()}')\n{$e}\n";
             }

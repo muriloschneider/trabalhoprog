@@ -27,11 +27,11 @@ $idcid = isset($_POST['cidade']) ? $_POST['cidade'] : "";
 $idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
 
 
-echo    "Ação: $acao <br>". "Nome: $nomecid <br>". "Cpf: $cpfcid <br>". 
-        "Profissao: $profissao <br>". "Renda: $renda <br>". "Raça: $raca <br>". 
-        "Data de nascimento: $nascimento <br>". "Entrevistador: $ident <br>". 
-        "Cidade: $idcid <br>";
-        die();
+// echo    "Ação: $acao <br>". "Nome: $nomecid <br>". "Cpf: $cpfcid <br>". 
+//         "Profissao: $profissao <br>". "Renda: $renda <br>". "Raça: $raca <br>". 
+//         "Data de nascimento: $nascimento <br>". "Entrevistador: $ident <br>". 
+//         "Cidade: $idcid <br>";
+//         die();
 
     if ($acao == "Enviar"){ 
 
