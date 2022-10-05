@@ -13,8 +13,6 @@ O trabalho deve conter os seguintes requisitos:
    
    > Atributos e métodos estáticos;
    
-   > Cada método deve possuir ao menos um teste implementado;
-   
    > Ao menos 3 CRUDs completos;
    
    > O projeto deve estar no github e será hospedado em um servidor fornecido pela professora;
