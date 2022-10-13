@@ -15,12 +15,15 @@
 
     function ListarCidadao($tipo, $info){
         $lista = Cidadao::Listagem($tipo,$info);
+        // echo "<pre>";
+        // var_dump($lista);
+        // die();
         foreach ($lista as $item) {
         echo "
         <tr>
             <td>".$item['idcidadao']."</td>
             <td>".$item['nome']."</td>
-            <td>".$item['cpf']."</td>
+            <td>".$item['cpfcidadao']."</td>
             <td>".$item['profissao']."</td>
             <td>".$item['renda']."</td>
             <td>".$item['raca']."</td>
@@ -45,7 +48,7 @@ function ListarEnt($tipo, $info){
         <td>".$item['cpf']."</td>
         <td>".$item['nome_cidade']."</td>
         <td><a href='entrevistador.php?acao=Editar&id=".$item['identrevistador']."'><img src='../img/pencil-square.svg' alt=''></a></td>
-        <td><a href='../acao/acao.php?acao=Excluir&id=".$item['identrevistador']."'><img src='../img/trash-fill.svg' alt=''></a></td>
+        <td><a href='../acao/acaoEnt.php?acao=Excluir&id=".$item['identrevistador']."'><img src='../img/trash-fill.svg' alt=''></a></td>
     </tr>";
 }
 

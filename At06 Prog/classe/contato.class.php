@@ -48,6 +48,7 @@
                     switch ($tipo) {
                         case '1': $sql .= " WHERE idcontato = :info"; break;
                         case '2': $sql .= " WHERE idcidadao = :info"; break;
+                        
                     }
                     $param = array();
                         if($tipo > 0)

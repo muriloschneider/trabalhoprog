@@ -6,7 +6,11 @@
     if(empty($acao)){
         $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     }
+
     $id = isset($_POST['id']) ? $_POST['id'] : "";
+    if(empty($id)){
+        $id = isset($_GET['id']) ? $_GET['id'] : "";
+    }
 
     $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
     
@@ -38,13 +42,21 @@
                                 $listar[0]['estado']);
 
         $entrevistador = new Entrevistador($id,$nome,$cpf,$cidadeobj);
-
+        
         $final = $entrevistador->Editar();
+        if($final == 0)
+            $final = true;
+        else
+            $final = false;
 
     }
 
     else if ($acao == "Excluir") {
-        $listar = Cidade::Listagem($tipo = 1, $info = $cidade);
+        
+
+        $listarEnt = Entrevistador::Listagem($tipo = 1, $info = $id);
+        $listar = Cidade::Listagem($tipo = 1, $info = $listarEnt[0]['cidade']);
+    
 
         $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
                                 $listar[0]['estado']);
@@ -55,6 +67,9 @@
         
         $final = $entrevistador->Excluir();
 
+    }
+    if($editar == 0){
+        header("Location: ../index/entrevistador.php");
     }
 
     if ($final) {

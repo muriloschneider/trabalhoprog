@@ -66,7 +66,7 @@
                                 ":cpf" => $this->getCpfEnt(),
                                 ":cidade" => $this->getCidEnt()->getIdCid(),
                                 ":identrevistador" => $this->getIdEnt());
-                return parent::Execute($sql,$param);
+                var_dump(parent::Execute($sql,$param));
             }catch(Exception $e){
                 echo "Erro ao editar: ('{$e->getMessage()}')\n{$e}\n";
             }

@@ -55,7 +55,7 @@ $idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
     }
 
 
-    if ($acao == "Editar") {
+    else if ($acao == "Editar") {
 
         
         $listar = Cidade::Listagem($tipo = 1, $info = $idcid);
@@ -76,34 +76,38 @@ $idcontato = isset($_POST['idcontato']) ? $_POST['idcontato'] : "";
         //     var_dump($cidadaoobj);
         //     die();
         $final = $cidadaoobj->Editar();
+        if($final == 0)
+            $final = true;
+        else
+            $final = false;
     }
 
 
-    if ($acao == "Excluir") {
-
+    else if ($acao == "Excluir") {
         $listagem = Cidadao::Listagem(1,$id);
-
+        
         $listar = Cidade::Listagem($tipo = 1, $info = $listagem[0]['cidade']);
 
         $cidadeobj = new Cidade($listar[0]['idcidade'],$listar[0]['nome_cidade'],
                                 $listar[0]['estado']);
-
+                                
         $listar = Entrevistador::Listagem($tipo = 1, $info = $listagem[0]['entrevistador']);
-
+        
         $entrevistadorobj = new Entrevistador(  $listar[0]['identrevistador'],
                                                 $listar[0]['nome_entrevistador'],
                                                 $listar[0]['cpf'],$cidadeobj);
-
+                                                
         $listar = Cidadao::listagem(1,$id);
-
-        $list = Contato::Listagem(2,$id);
-
-        $cidadaoobj = new Cidadao($id,$listar[0]['nome'],$listar[0]['cpf'],$listar[0]['profissao'],
+        $list = Contato::Listagem(2,$listar[0]['idcidadao']);
+        
+        $cidadaoobj = new Cidadao($id,$listar[0]['nome'],$listar[0]['cpfcidadao'],$listar[0]['profissao'],
                                     $listar[0]['renda'],$listar[0]['raca'],$listar[0]['nascimento'],
                                     $entrevistadorobj,$cidadeobj,$list[0]['idcontato'],$list[0]['telefone'],
                                     $list[0]['email']);
-
         $final = $cidadaoobj->Excluir();
+        if($final == 0){
+            $final = true;
+        }
     }
 
     if ($final) {

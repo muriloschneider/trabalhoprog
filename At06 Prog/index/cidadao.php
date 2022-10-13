@@ -78,7 +78,7 @@
             <label for="">Nome: </label> <br> <input type="text" name="nome" id="nome" value="<?php if($acao=="Editar")echo $cid[0]['nome']; else echo ""; ?>" placeholder="Insira o seu Nome">
         </div>
         <div class="campoEstado">
-            <label for="">Cpf: </label> <br> <input type="text" onkeypress="$(this).mask('000.000.000-00');" maxlength="14" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpf']; else echo ""; ?>" placeholder="Insira o seu CPF">
+            <label for="">Cpf: </label> <br> <input type="text" onkeypress="$(this).mask('000.000.000-00');" maxlength="14" name="cpf" id="cpf" value="<?php if($acao=="Editar")echo $cid[0]['cpfcidadao']; else echo ""; ?>" placeholder="Insira o seu CPF">
         </div>
         <div class="campoEstado">
             <label for="">Profissao: </label> <br> <input type="text" name="profissao" id="profissao" value="<?php if($acao=="Editar")echo $cid[0]['profissao']; else echo ""; ?>" placeholder="Insira a sua Profissão">

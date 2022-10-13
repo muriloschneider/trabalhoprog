@@ -68,7 +68,7 @@
                 $sql = "DELETE FROM `ibge`.`cidade` WHERE `idcidade` = :idcidade";
                 $param = array( ":idcidade" => $this->getIdCid());
                 $row = parent::Execute($sql,$param);
-                return $row;
+                return var_dump($row);
             }catch(Exception $e){
                 echo "Erro ao excluir: ('{$e->getMessage()}')\n{$e}\n";
             }

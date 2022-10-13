@@ -50,7 +50,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ibge`.`cidadao` (
   `idcidadao` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) NULL,
-  `cpf` VARCHAR(250) NULL,
+  `cpfcidadao` VARCHAR(250) NULL,
   `profissao` VARCHAR(250) NULL,
   `renda` VARCHAR(250) NULL,
   `raca` VARCHAR(250) NULL,

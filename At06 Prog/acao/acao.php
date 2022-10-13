@@ -18,30 +18,47 @@
         $id = isset($_GET['id']) ? $_GET['id'] : "";
     }
 
-    if($acao == "Cadastrar"){
+    if($acao == "Enviar"){
         $cidade = new Cidade(null,$nomeCid, $estado);
         $final = $cidade->Salvar();
+        if($final==0){
+            $final = true;
+        }
     }
 
 
 
-    if ($acao == "Editar") {
+    else if ($acao == "Editar") {
+
         $cidade = new Cidade($id,$nomeCid, $estado);
         $final = $cidade->Editar();
+        if($final == 0){
+            $final = true;
+        } 
 
     }
 
-    if ($acao == "Excluir") {
+    
+    else if ($acao == "Excluir") {
 
+        
         $cidade = Cidade::Listagem($tipo = 1, $info = $id);
         $cidade = new Cidade($id,$cidade[0]['nome_cidade'], $cidade[0]['estado']);
         $final = $cidade->Excluir();
+        if($final==0){
+            $excluir = 'Excluir';
+        }
+
+
 
     }
-
     if ($final) {
        echo json_encode('Salvo');
-    } else {
+    } 
+    else if($excluir == 'Excluir'){
+        header('Location: ../index/index.php');
+    }
+    else {
         echo json_encode("Erro");
     }
 

@@ -36,9 +36,10 @@
             $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
         }
         $id = isset($_GET['id']) ? $_GET['id'] : '';
-        
-        if($acao == 'Editar')
+
+        if($acao == 'Editar'){
             $lista = Cidade::Listagem(1,$id);
+        }
     ?>
 
 </head>
@@ -61,7 +62,7 @@
         <main class="container">
             <hr class="linha1">
             <h2>Cadastrar</h2>
-            <form id='form-cidade' class="forms" method="POST" >
+            <form id='form-cidade' class="forms">
                 <input type="hidden" id="id" name="id" value="<?php if(isset($lista)){ echo $lista[0]['idcidade'];} else{ echo "";}?>">
                 <div class="campoCidade">
                     <label>Nome da cidade</label> <br> <input type="text" id="cidade" value="<?php if(isset($lista)){ echo $lista[0]['nome_cidade'];} else{ echo "";}?>" name="cidade" placeholder="Insira o nome da cidade">
@@ -71,8 +72,8 @@
                 </div>
                 <br>
                 <div class="entrar">
-                    <input id="acao" type="submit" name="acao" value="<?php if($acao){echo $acao;} else{echo "Cadastrar";}?>">
-                </div>
+                    <input type="submit" name="acao" id="acao" value="<?php if($acao=="Editar")echo "Editar"; else echo "Enviar"; ?>">
+                </div> 
             </form>
             <hr class="linha2">
         </main>

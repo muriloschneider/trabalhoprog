@@ -3,7 +3,7 @@ $('#form-cidade').submit(function(e){
     var id = $('#id').val();
     var cidade = $('#cidade').val();
     var estado = $('#estado').val();
-    var acao = 'Cadastrar';
+    var acao = $('#acao').val();
     if(cidade != '' && estado != ''){
     $.ajax({
         url: '../acao/acao.php',
@@ -33,5 +33,4 @@ function getCidade(){
         }
     });
 }
-preventDefault();
 getCidade();

@@ -61,9 +61,9 @@
 
         public function Salvar(){
             try{
-                $sql = "INSERT INTO `ibge`.`cidadao` (`nome`, `cpf`, `profissao`, `renda`, `raca`, `nascimento`, `entrevistador`, `cidade`) VALUES (:nome, :cpf, :profissao, :renda, :raca, :nascimento, :entrevistador, :cidade)";
+                $sql = "INSERT INTO `ibge`.`cidadao` (`nome`, `cpfcidadao`, `profissao`, `renda`, `raca`, `nascimento`, `entrevistador`, `cidade`) VALUES (:nome, :cpfcidadao, :profissao, :renda, :raca, :nascimento, :entrevistador, :cidade)";
                 $param = array( ":nome" => $this->getNome(),
-                                ":cpf" => $this->getCpf(),
+                                ":cpfcidadao" => $this->getCpf(),
                                 ":profissao" => $this->getProfissao(),
                                 ":renda" => $this->getRenda(),
                                 ":raca" => $this->getRaca(),
@@ -101,11 +101,11 @@
 
         public function Editar(){
             try{
-                $sql = "UPDATE `ibge`.`cidadao`  SET nome = :nome, cpf = :cpf, 
+                $sql = "UPDATE `ibge`.`cidadao`  SET nome = :nome, cpfcidadao = :cpfcidadao, 
                         profissao = :profissao, renda = :renda, raca = :raca, nascimento = :nascimento, 
                         entrevistador = :entrevistador, cidade = :cidade WHERE idcidadao = :idcidadao";
                 $param = array( ":nome" => $this->getNome(),
-                                ":cpf" => $this->getCpf(),
+                                ":cpfcidadao" => $this->getCpf(),
                                 ":profissao" => $this->getProfissao(),
                                 ":renda" => $this->getRenda(),
                                 ":raca" => $this->getRaca(),
